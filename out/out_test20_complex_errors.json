@@ -1,0 +1,9 @@
+[ {
+  "command" : "startSimulation",
+  "message" : "Simulation started",
+  "timestamp" : 2
+}, {
+  "command" : "startSimulation",
+  "message" : "Simulation started",
+  "timestamp" : 28
+} ]
