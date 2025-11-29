@@ -1,0 +1,225 @@
+[ {
+  "command" : "startSimulation",
+  "message" : "Simulation has started.",
+  "timestamp" : 2
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "LightForestSoil",
+      "mass" : 1000.0,
+      "type" : "ForestSoil",
+      "nitrogen" : 2.5,
+      "waterRetention" : 0.5,
+      "soilpH" : 6.7,
+      "organicMatter" : 0.3,
+      "soilQuality" : 4.41,
+      "leafLitter" : 0.2
+    },
+    "air" : {
+      "name" : "Dry Desert Air",
+      "mass" : 900000.0,
+      "humidity" : 60.0,
+      "temperature" : 15.0,
+      "oxygenLevel" : 20.0,
+      "airQuality" : 33.0,
+      "type" : "DesertAir",
+      "dustParticles" : 12.5
+    },
+    "water" : {
+      "name" : "TranquilPond",
+      "mass" : 35.0,
+      "type" : "pond"
+    },
+    "plants" : {
+      "name" : "Sunflower",
+      "mass" : 0.6,
+      "type" : "FloweringPlants"
+    }
+  },
+  "timestamp" : 21
+}, {
+  "command" : "printMap",
+  "output" : [ {
+    "section" : [ 0, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 1, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 2, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 3, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "moderate",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 0, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 2, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "moderate",
+    "totalNrOfObjects" : 3
+  }, {
+    "section" : [ 3, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 0, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 2, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 3, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "moderate",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 0, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "moderate",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 2, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "moderate",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 3, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 2
+  } ],
+  "timestamp" : 24
+}, {
+  "command" : "endSimulation",
+  "message" : "Simulation has ended.",
+  "timestamp" : 26
+}, {
+  "command" : "startSimulation",
+  "message" : "Simulation has started.",
+  "timestamp" : 28
+}, {
+  "command" : "printMap",
+  "output" : [ {
+    "section" : [ 0, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 1, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 2, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 3, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "moderate",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 0, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 2, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "moderate",
+    "totalNrOfObjects" : 3
+  }, {
+    "section" : [ 3, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 0, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 2, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 3, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "moderate",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 0, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "moderate",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 2, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "moderate",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 3, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 2
+  } ],
+  "timestamp" : 29
+}, {
+  "command" : "endSimulation",
+  "message" : "Simulation has ended.",
+  "timestamp" : 61
+}, {
+  "command" : "endSimulation",
+  "message" : "ERROR: Simulation not started. Cannot perform action",
+  "timestamp" : 62
+} ]

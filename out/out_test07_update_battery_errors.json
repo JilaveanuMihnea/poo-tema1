@@ -1,0 +1,71 @@
+[ {
+  "command" : "startSimulation",
+  "message" : "Simulation has started.",
+  "timestamp" : 2
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "LightForestSoil",
+      "mass" : 1000.0,
+      "type" : "ForestSoil",
+      "nitrogen" : 2.5,
+      "waterRetention" : 0.5,
+      "soilpH" : 6.7,
+      "organicMatter" : 0.3,
+      "soilQuality" : 4.41,
+      "leafLitter" : 0.2
+    },
+    "air" : {
+      "name" : "Spring Air",
+      "mass" : 900000.0,
+      "humidity" : 60.0,
+      "temperature" : 15.0,
+      "oxygenLevel" : 20.0,
+      "airQuality" : 81.0,
+      "type" : "TemperateAir",
+      "pollenLevel" : 10.0
+    },
+    "plants" : {
+      "name" : "Tulip",
+      "mass" : 0.5,
+      "type" : "FloweringPlants"
+    }
+  },
+  "timestamp" : 9
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "LightForestSoil",
+      "mass" : 1000.0,
+      "type" : "ForestSoil",
+      "nitrogen" : 2.5,
+      "waterRetention" : 0.5,
+      "soilpH" : 6.7,
+      "organicMatter" : 0.3,
+      "soilQuality" : 4.41,
+      "leafLitter" : 0.2
+    },
+    "air" : {
+      "name" : "Spring Air",
+      "mass" : 900000.0,
+      "humidity" : 60.0,
+      "temperature" : 15.0,
+      "oxygenLevel" : 20.0,
+      "airQuality" : 81.0,
+      "type" : "TemperateAir",
+      "pollenLevel" : 10.0
+    },
+    "plants" : {
+      "name" : "Tulip",
+      "mass" : 0.5,
+      "type" : "FloweringPlants"
+    }
+  },
+  "timestamp" : 21
+}, {
+  "command" : "endSimulation",
+  "message" : "Simulation has ended.",
+  "timestamp" : 22
+} ]

@@ -1,0 +1,1218 @@
+[ {
+  "command" : "startSimulation",
+  "message" : "Simulation has started.",
+  "timestamp" : 1
+}, {
+  "command" : "printMap",
+  "output" : [ {
+    "section" : [ 0, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 2, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 3, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 4, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 5, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 0, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 1, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 2, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 3, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 4, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 5, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 0, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 1, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 2, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 3, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 4, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 5, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "moderate",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 0, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 3
+  }, {
+    "section" : [ 2, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 3, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 4, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 5, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "moderate",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 0, 4 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 1, 4 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 2, 4 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 3, 4 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 4, 4 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 5, 4 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 0, 5 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 1, 5 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 2, 5 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 3, 5 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 4, 5 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 5, 5 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  } ],
+  "timestamp" : 2
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "SandyDesert",
+      "mass" : 880.0,
+      "type" : "DesertSoil",
+      "nitrogen" : 0.5,
+      "waterRetention" : 0.2,
+      "soilpH" : 8.1,
+      "organicMatter" : 0.03,
+      "soilQuality" : 0.21,
+      "salinity" : 0.05
+    },
+    "air" : {
+      "name" : "Dry Desert Wind",
+      "mass" : 850000.0,
+      "humidity" : 15.0,
+      "temperature" : 38.0,
+      "oxygenLevel" : 19.0,
+      "airQuality" : 22.2,
+      "type" : "DesertAir",
+      "dustParticles" : 22.0
+    },
+    "animals" : {
+      "name" : "Wolf",
+      "mass" : 35.0,
+      "type" : "Carnivores"
+    }
+  },
+  "timestamp" : 4
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "SandyDesert",
+      "mass" : 880.0,
+      "type" : "DesertSoil",
+      "nitrogen" : 0.5,
+      "waterRetention" : 0.2,
+      "soilpH" : 8.1,
+      "organicMatter" : 0.03,
+      "soilQuality" : 0.21,
+      "salinity" : 0.05
+    },
+    "air" : {
+      "name" : "Dry Desert Wind",
+      "mass" : 850000.0,
+      "humidity" : 15.0,
+      "temperature" : 38.0,
+      "oxygenLevel" : 19.0,
+      "airQuality" : 22.2,
+      "type" : "DesertAir",
+      "dustParticles" : 22.0
+    },
+    "animals" : {
+      "name" : "Wolf",
+      "mass" : 35.0,
+      "type" : "Carnivores"
+    }
+  },
+  "timestamp" : 7
+}, {
+  "command" : "printMap",
+  "output" : [ {
+    "section" : [ 0, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 2, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 3, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 4, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 5, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 0, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 1, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 2, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 3, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 4, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 5, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 0, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 1, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 2, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 3, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 4, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 5, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "moderate",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 0, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 3
+  }, {
+    "section" : [ 2, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 3, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 4, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 5, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "moderate",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 0, 4 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 1, 4 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 2, 4 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 3, 4 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 4, 4 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 5, 4 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 0, 5 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 1, 5 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 2, 5 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 3, 5 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 4, 5 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 5, 5 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  } ],
+  "timestamp" : 10
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "SandyDesert",
+      "mass" : 880.0,
+      "type" : "DesertSoil",
+      "nitrogen" : 0.5,
+      "waterRetention" : 0.2,
+      "soilpH" : 8.1,
+      "organicMatter" : 0.03,
+      "soilQuality" : 0.21,
+      "salinity" : 0.05
+    },
+    "air" : {
+      "name" : "Dry Desert Wind",
+      "mass" : 850000.0,
+      "humidity" : 15.0,
+      "temperature" : 38.0,
+      "oxygenLevel" : 19.0,
+      "airQuality" : 22.2,
+      "type" : "DesertAir",
+      "dustParticles" : 22.0
+    },
+    "animals" : {
+      "name" : "Wolf",
+      "mass" : 35.0,
+      "type" : "Carnivores"
+    }
+  },
+  "timestamp" : 14
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "SandyDesert",
+      "mass" : 880.0,
+      "type" : "DesertSoil",
+      "nitrogen" : 0.5,
+      "waterRetention" : 0.2,
+      "soilpH" : 8.1,
+      "organicMatter" : 0.03,
+      "soilQuality" : 0.21,
+      "salinity" : 0.05
+    },
+    "air" : {
+      "name" : "Dry Desert Wind",
+      "mass" : 850000.0,
+      "humidity" : 15.0,
+      "temperature" : 38.0,
+      "oxygenLevel" : 19.0,
+      "airQuality" : 22.2,
+      "type" : "DesertAir",
+      "dustParticles" : 22.0
+    },
+    "animals" : {
+      "name" : "Wolf",
+      "mass" : 35.0,
+      "type" : "Carnivores"
+    }
+  },
+  "timestamp" : 19
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "SandyDesert",
+      "mass" : 880.0,
+      "type" : "DesertSoil",
+      "nitrogen" : 0.5,
+      "waterRetention" : 0.2,
+      "soilpH" : 8.1,
+      "organicMatter" : 0.03,
+      "soilQuality" : 0.21,
+      "salinity" : 0.05
+    },
+    "air" : {
+      "name" : "Dry Desert Wind",
+      "mass" : 850000.0,
+      "humidity" : 15.0,
+      "temperature" : 38.0,
+      "oxygenLevel" : 19.0,
+      "airQuality" : 22.2,
+      "type" : "DesertAir",
+      "dustParticles" : 22.0
+    },
+    "animals" : {
+      "name" : "Wolf",
+      "mass" : 35.0,
+      "type" : "Carnivores"
+    }
+  },
+  "timestamp" : 22
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "SandyDesert",
+      "mass" : 880.0,
+      "type" : "DesertSoil",
+      "nitrogen" : 0.5,
+      "waterRetention" : 0.2,
+      "soilpH" : 8.1,
+      "organicMatter" : 0.03,
+      "soilQuality" : 0.21,
+      "salinity" : 0.05
+    },
+    "air" : {
+      "name" : "Dry Desert Wind",
+      "mass" : 850000.0,
+      "humidity" : 15.0,
+      "temperature" : 38.0,
+      "oxygenLevel" : 19.0,
+      "airQuality" : 22.2,
+      "type" : "DesertAir",
+      "dustParticles" : 22.0
+    },
+    "animals" : {
+      "name" : "Wolf",
+      "mass" : 35.0,
+      "type" : "Carnivores"
+    }
+  },
+  "timestamp" : 24
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "SandyDesert",
+      "mass" : 880.0,
+      "type" : "DesertSoil",
+      "nitrogen" : 0.5,
+      "waterRetention" : 0.2,
+      "soilpH" : 8.1,
+      "organicMatter" : 0.03,
+      "soilQuality" : 0.21,
+      "salinity" : 0.05
+    },
+    "air" : {
+      "name" : "Dry Desert Wind",
+      "mass" : 850000.0,
+      "humidity" : 15.0,
+      "temperature" : 38.0,
+      "oxygenLevel" : 19.0,
+      "airQuality" : 22.2,
+      "type" : "DesertAir",
+      "dustParticles" : 22.0
+    },
+    "animals" : {
+      "name" : "Wolf",
+      "mass" : 35.0,
+      "type" : "Carnivores"
+    }
+  },
+  "timestamp" : 31
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "SandyDesert",
+      "mass" : 880.0,
+      "type" : "DesertSoil",
+      "nitrogen" : 0.5,
+      "waterRetention" : 0.2,
+      "soilpH" : 8.1,
+      "organicMatter" : 0.03,
+      "soilQuality" : 0.21,
+      "salinity" : 0.05
+    },
+    "air" : {
+      "name" : "Dry Desert Wind",
+      "mass" : 850000.0,
+      "humidity" : 15.0,
+      "temperature" : 38.0,
+      "oxygenLevel" : 19.0,
+      "airQuality" : 22.2,
+      "type" : "DesertAir",
+      "dustParticles" : 22.0
+    },
+    "animals" : {
+      "name" : "Wolf",
+      "mass" : 35.0,
+      "type" : "Carnivores"
+    }
+  },
+  "timestamp" : 33
+}, {
+  "command" : "printMap",
+  "output" : [ {
+    "section" : [ 0, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 2, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 3, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 4, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 5, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 0, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 1, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 2, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 3, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 4, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 5, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 0, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 1, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 2, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 3, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 4, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 5, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "moderate",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 0, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 3
+  }, {
+    "section" : [ 2, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 3, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 4, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 5, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "moderate",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 0, 4 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 1, 4 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 2, 4 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 3, 4 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 4, 4 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 5, 4 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 0, 5 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 1, 5 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 2, 5 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 3, 5 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 4, 5 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 5, 5 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  } ],
+  "timestamp" : 34
+}, {
+  "command" : "endSimulation",
+  "message" : "Simulation has ended.",
+  "timestamp" : 36
+}, {
+  "command" : "startSimulation",
+  "message" : "Simulation has started.",
+  "timestamp" : 37
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "SandyDesert",
+      "mass" : 880.0,
+      "type" : "DesertSoil",
+      "nitrogen" : 0.5,
+      "waterRetention" : 0.2,
+      "soilpH" : 8.1,
+      "organicMatter" : 0.03,
+      "soilQuality" : 0.21,
+      "salinity" : 0.05
+    },
+    "air" : {
+      "name" : "Dry Desert Wind",
+      "mass" : 850000.0,
+      "humidity" : 15.0,
+      "temperature" : 38.0,
+      "oxygenLevel" : 19.0,
+      "airQuality" : 22.2,
+      "type" : "DesertAir",
+      "dustParticles" : 22.0
+    },
+    "animals" : {
+      "name" : "Wolf",
+      "mass" : 35.0,
+      "type" : "Carnivores"
+    }
+  },
+  "timestamp" : 40
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "SandyDesert",
+      "mass" : 880.0,
+      "type" : "DesertSoil",
+      "nitrogen" : 0.5,
+      "waterRetention" : 0.2,
+      "soilpH" : 8.1,
+      "organicMatter" : 0.03,
+      "soilQuality" : 0.21,
+      "salinity" : 0.05
+    },
+    "air" : {
+      "name" : "Dry Desert Wind",
+      "mass" : 850000.0,
+      "humidity" : 15.0,
+      "temperature" : 38.0,
+      "oxygenLevel" : 19.0,
+      "airQuality" : 22.2,
+      "type" : "DesertAir",
+      "dustParticles" : 22.0
+    },
+    "animals" : {
+      "name" : "Wolf",
+      "mass" : 35.0,
+      "type" : "Carnivores"
+    }
+  },
+  "timestamp" : 42
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "SandyDesert",
+      "mass" : 880.0,
+      "type" : "DesertSoil",
+      "nitrogen" : 0.5,
+      "waterRetention" : 0.2,
+      "soilpH" : 8.1,
+      "organicMatter" : 0.03,
+      "soilQuality" : 0.21,
+      "salinity" : 0.05
+    },
+    "air" : {
+      "name" : "Dry Desert Wind",
+      "mass" : 850000.0,
+      "humidity" : 15.0,
+      "temperature" : 38.0,
+      "oxygenLevel" : 19.0,
+      "airQuality" : 22.2,
+      "type" : "DesertAir",
+      "dustParticles" : 22.0
+    },
+    "animals" : {
+      "name" : "Wolf",
+      "mass" : 35.0,
+      "type" : "Carnivores"
+    }
+  },
+  "timestamp" : 45
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "SandyDesert",
+      "mass" : 880.0,
+      "type" : "DesertSoil",
+      "nitrogen" : 0.5,
+      "waterRetention" : 0.2,
+      "soilpH" : 8.1,
+      "organicMatter" : 0.03,
+      "soilQuality" : 0.21,
+      "salinity" : 0.05
+    },
+    "air" : {
+      "name" : "Dry Desert Wind",
+      "mass" : 850000.0,
+      "humidity" : 15.0,
+      "temperature" : 38.0,
+      "oxygenLevel" : 19.0,
+      "airQuality" : 22.2,
+      "type" : "DesertAir",
+      "dustParticles" : 22.0
+    },
+    "animals" : {
+      "name" : "Wolf",
+      "mass" : 35.0,
+      "type" : "Carnivores"
+    }
+  },
+  "timestamp" : 49
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "SandyDesert",
+      "mass" : 880.0,
+      "type" : "DesertSoil",
+      "nitrogen" : 0.5,
+      "waterRetention" : 0.2,
+      "soilpH" : 8.1,
+      "organicMatter" : 0.03,
+      "soilQuality" : 0.21,
+      "salinity" : 0.05
+    },
+    "air" : {
+      "name" : "Dry Desert Wind",
+      "mass" : 850000.0,
+      "humidity" : 15.0,
+      "temperature" : 38.0,
+      "oxygenLevel" : 19.0,
+      "airQuality" : 22.2,
+      "type" : "DesertAir",
+      "dustParticles" : 22.0
+    },
+    "animals" : {
+      "name" : "Wolf",
+      "mass" : 35.0,
+      "type" : "Carnivores"
+    }
+  },
+  "timestamp" : 71
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "SandyDesert",
+      "mass" : 880.0,
+      "type" : "DesertSoil",
+      "nitrogen" : 0.5,
+      "waterRetention" : 0.2,
+      "soilpH" : 8.1,
+      "organicMatter" : 0.03,
+      "soilQuality" : 0.21,
+      "salinity" : 0.05
+    },
+    "air" : {
+      "name" : "Dry Desert Wind",
+      "mass" : 850000.0,
+      "humidity" : 15.0,
+      "temperature" : 38.0,
+      "oxygenLevel" : 19.0,
+      "airQuality" : 22.2,
+      "type" : "DesertAir",
+      "dustParticles" : 22.0
+    },
+    "animals" : {
+      "name" : "Wolf",
+      "mass" : 35.0,
+      "type" : "Carnivores"
+    }
+  },
+  "timestamp" : 74
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "SandyDesert",
+      "mass" : 880.0,
+      "type" : "DesertSoil",
+      "nitrogen" : 0.5,
+      "waterRetention" : 0.2,
+      "soilpH" : 8.1,
+      "organicMatter" : 0.03,
+      "soilQuality" : 0.21,
+      "salinity" : 0.05
+    },
+    "air" : {
+      "name" : "Dry Desert Wind",
+      "mass" : 850000.0,
+      "humidity" : 15.0,
+      "temperature" : 38.0,
+      "oxygenLevel" : 19.0,
+      "airQuality" : 22.2,
+      "type" : "DesertAir",
+      "dustParticles" : 22.0
+    },
+    "animals" : {
+      "name" : "Wolf",
+      "mass" : 35.0,
+      "type" : "Carnivores"
+    }
+  },
+  "timestamp" : 75
+}, {
+  "command" : "printMap",
+  "output" : [ {
+    "section" : [ 0, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 2, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 3, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 4, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 5, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 0, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 1, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 2, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 3, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 4, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 5, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 0, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 1, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 2, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 3, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 4, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 5, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "moderate",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 0, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 3
+  }, {
+    "section" : [ 2, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 3, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 4, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 5, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "moderate",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 0, 4 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 1, 4 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 2, 4 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 3, 4 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 4, 4 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 5, 4 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 0, 5 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 1, 5 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 2, 5 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 3, 5 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 4, 5 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 5, 5 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  } ],
+  "timestamp" : 76
+}, {
+  "command" : "endSimulation",
+  "message" : "Simulation has ended.",
+  "timestamp" : 77
+} ]

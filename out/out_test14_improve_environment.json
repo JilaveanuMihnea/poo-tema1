@@ -1,0 +1,133 @@
+[ {
+  "command" : "startSimulation",
+  "message" : "Simulation has started.",
+  "timestamp" : 1
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "LightForestSoil",
+      "mass" : 900.0,
+      "type" : "ForestSoil",
+      "nitrogen" : 2.6,
+      "waterRetention" : 0.8,
+      "soilpH" : 5.3,
+      "organicMatter" : 0.4,
+      "soilQuality" : 5.18,
+      "leafLitter" : 0.2
+    },
+    "air" : {
+      "name" : "Humid Summer Wind",
+      "mass" : 80000.0,
+      "humidity" : 80.0,
+      "temperature" : 25.0,
+      "oxygenLevel" : 21.0,
+      "airQuality" : 82.0,
+      "type" : "TropicalAir",
+      "co2Level" : 0.06
+    },
+    "plants" : {
+      "name" : "Rose",
+      "mass" : 0.5,
+      "type" : "FloweringPlants"
+    }
+  },
+  "timestamp" : 5
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "LightForestSoil",
+      "mass" : 900.0,
+      "type" : "ForestSoil",
+      "nitrogen" : 2.6,
+      "waterRetention" : 0.8,
+      "soilpH" : 5.3,
+      "organicMatter" : 0.4,
+      "soilQuality" : 5.18,
+      "leafLitter" : 0.2
+    },
+    "air" : {
+      "name" : "Humid Summer Wind",
+      "mass" : 80000.0,
+      "humidity" : 80.0,
+      "temperature" : 25.0,
+      "oxygenLevel" : 21.0,
+      "airQuality" : 82.0,
+      "type" : "TropicalAir",
+      "co2Level" : 0.06
+    },
+    "plants" : {
+      "name" : "Rose",
+      "mass" : 0.5,
+      "type" : "FloweringPlants"
+    }
+  },
+  "timestamp" : 7
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "LightForestSoil",
+      "mass" : 900.0,
+      "type" : "ForestSoil",
+      "nitrogen" : 2.6,
+      "waterRetention" : 0.8,
+      "soilpH" : 5.3,
+      "organicMatter" : 0.4,
+      "soilQuality" : 5.18,
+      "leafLitter" : 0.2
+    },
+    "air" : {
+      "name" : "Humid Summer Wind",
+      "mass" : 80000.0,
+      "humidity" : 80.0,
+      "temperature" : 25.0,
+      "oxygenLevel" : 21.0,
+      "airQuality" : 82.0,
+      "type" : "TropicalAir",
+      "co2Level" : 0.06
+    },
+    "plants" : {
+      "name" : "Rose",
+      "mass" : 0.5,
+      "type" : "FloweringPlants"
+    }
+  },
+  "timestamp" : 13
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "LightForestSoil",
+      "mass" : 900.0,
+      "type" : "ForestSoil",
+      "nitrogen" : 2.6,
+      "waterRetention" : 0.8,
+      "soilpH" : 5.3,
+      "organicMatter" : 0.4,
+      "soilQuality" : 5.18,
+      "leafLitter" : 0.2
+    },
+    "air" : {
+      "name" : "Humid Summer Wind",
+      "mass" : 80000.0,
+      "humidity" : 80.0,
+      "temperature" : 25.0,
+      "oxygenLevel" : 21.0,
+      "airQuality" : 82.0,
+      "type" : "TropicalAir",
+      "co2Level" : 0.06
+    },
+    "plants" : {
+      "name" : "Rose",
+      "mass" : 0.5,
+      "type" : "FloweringPlants"
+    }
+  },
+  "timestamp" : 15
+}, {
+  "command" : "endSimulation",
+  "message" : "Simulation has ended.",
+  "timestamp" : 20
+} ]

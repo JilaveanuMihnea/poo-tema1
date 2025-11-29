@@ -3,7 +3,9 @@ package main;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.InputLoader;
+import main.Simulator.Simulator;
 
 import java.io.File;
 import java.io.IOException;
@@ -47,6 +49,13 @@ public final class Main {
          * output.add(objectNode);
          *
          */
+        Simulator simulator = new Simulator();
+        simulator.simulate(inputLoader, output, MAPPER);
+
+//        ObjectNode test = MAPPER.createObjectNode();
+//        test.put("test", "test");
+//        output.add(test);
+
 
         File outputFile = new File(outputPath);
         outputFile.getParentFile().mkdirs();

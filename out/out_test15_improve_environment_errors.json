@@ -1,0 +1,71 @@
+[ {
+  "command" : "startSimulation",
+  "message" : "Simulation has started.",
+  "timestamp" : 1
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "MistyForestBed",
+      "mass" : 910.0,
+      "type" : "ForestSoil",
+      "nitrogen" : 2.9,
+      "waterRetention" : 0.85,
+      "soilpH" : 5.1,
+      "organicMatter" : 0.45,
+      "soilQuality" : 5.73,
+      "leafLitter" : 0.25
+    },
+    "air" : {
+      "name" : "EquatorialWind",
+      "mass" : 82000.0,
+      "humidity" : 83.0,
+      "temperature" : 26.0,
+      "oxygenLevel" : 21.0,
+      "airQuality" : 83.5,
+      "type" : "TropicalAir",
+      "co2Level" : 0.05
+    },
+    "plants" : {
+      "name" : "CrimsonRose",
+      "mass" : 0.5,
+      "type" : "FloweringPlants"
+    }
+  },
+  "timestamp" : 5
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "MistyForestBed",
+      "mass" : 910.0,
+      "type" : "ForestSoil",
+      "nitrogen" : 2.9,
+      "waterRetention" : 0.85,
+      "soilpH" : 5.1,
+      "organicMatter" : 0.45,
+      "soilQuality" : 5.73,
+      "leafLitter" : 0.25
+    },
+    "air" : {
+      "name" : "EquatorialWind",
+      "mass" : 82000.0,
+      "humidity" : 83.0,
+      "temperature" : 26.0,
+      "oxygenLevel" : 21.0,
+      "airQuality" : 83.5,
+      "type" : "TropicalAir",
+      "co2Level" : 0.05
+    },
+    "plants" : {
+      "name" : "CrimsonRose",
+      "mass" : 0.5,
+      "type" : "FloweringPlants"
+    }
+  },
+  "timestamp" : 62
+}, {
+  "command" : "endSimulation",
+  "message" : "Simulation has ended.",
+  "timestamp" : 67
+} ]
