@@ -1,5 +1,7 @@
 package main.Entities;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,5 +14,12 @@ public abstract class Entity {
     public Entity(String name, double mass) {
         this.name = name;
         this.mass = mass;
+    }
+
+    public ObjectNode toNode() {
+        ObjectNode node = new ObjectMapper().createObjectNode();
+        node.put("name", name);
+        node.put("mass", mass);
+        return node;
     }
 }

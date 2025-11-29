@@ -1,5 +1,6 @@
 package main.Entities.Air;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.AirInput;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,6 @@ public abstract class Air extends Entity {
     private double humidity;
     private double temperature;
     private double oxygenLevel;
-    private double wildcardAttribute;
     private double airQuality;
     private String type;
 
@@ -24,5 +24,29 @@ public abstract class Air extends Entity {
         this.type = airInput.getType();
     }
 
-//    protected abstract double calculateAirQuality();
+    @Override
+    public ObjectNode toNode() {
+        ObjectNode airNode = super.toNode();
+        airNode.put("humidity", humidity);
+        airNode.put("temperature", temperature);
+        airNode.put("oxygenLevel", oxygenLevel);
+        airNode.put("airQuality", airQuality);
+        return airNode;
+        }
+
+    protected abstract double computeAirQuality();
+    protected double airQualityNormalize(double quality) {
+        quality = Math.max(0, Math.min(quality, 100));
+        return Math.round(quality * 100.0) / 100.0;
+    }
+
+    public String getInterpretedAirQuality() {
+        if (airQuality < 40) {
+            return "poor";
+        } else if (airQuality < 70) {
+            return "moderate";
+        } else {
+            return "good";
+        }
+    }
 }

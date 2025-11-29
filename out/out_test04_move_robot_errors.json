@@ -1,5 +1,9 @@
 [ {
   "command" : "startSimulation",
-  "message" : "Simulation started",
+  "message" : "Simulation has started.",
   "timestamp" : 2
+}, {
+  "command" : "endSimulation",
+  "message" : "Simulation has ended.",
+  "timestamp" : 12
 } ]

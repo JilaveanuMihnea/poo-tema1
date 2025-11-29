@@ -1,5 +1,81 @@
 [ {
   "command" : "startSimulation",
-  "message" : "Simulation started",
+  "message" : "Simulation has started.",
   "timestamp" : 1
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "ArcticTundraSoil",
+      "mass" : 800.0,
+      "type" : "TundraSoil",
+      "nitrogen" : 0.9,
+      "waterRetention" : 0.3,
+      "soilpH" : 7.5,
+      "organicMatter" : 0.05,
+      "soilQuality" : 0.0,
+      "permafrostDepth" : 6.0
+    },
+    "air" : {
+      "name" : "Spring Air",
+      "mass" : 900000.0,
+      "humidity" : 60.0,
+      "temperature" : 15.0,
+      "oxygenLevel" : 20.0,
+      "airQuality" : 80.9,
+      "type" : "TemperateAir",
+      "pollenLevel" : 11.0
+    },
+    "plants" : {
+      "name" : "Tulip",
+      "mass" : 0.5,
+      "type" : "FloweringPlants"
+    },
+    "animals" : {
+      "name" : "Bear",
+      "mass" : 300.0,
+      "type" : "Omnivores"
+    }
+  },
+  "timestamp" : 5
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "ArcticTundraSoil",
+      "mass" : 800.0,
+      "type" : "TundraSoil",
+      "nitrogen" : 0.9,
+      "waterRetention" : 0.3,
+      "soilpH" : 7.5,
+      "organicMatter" : 0.05,
+      "soilQuality" : 0.0,
+      "permafrostDepth" : 6.0
+    },
+    "air" : {
+      "name" : "Spring Air",
+      "mass" : 900000.0,
+      "humidity" : 60.0,
+      "temperature" : 15.0,
+      "oxygenLevel" : 20.0,
+      "airQuality" : 80.9,
+      "type" : "TemperateAir",
+      "pollenLevel" : 11.0
+    },
+    "plants" : {
+      "name" : "Tulip",
+      "mass" : 0.5,
+      "type" : "FloweringPlants"
+    },
+    "animals" : {
+      "name" : "Bear",
+      "mass" : 300.0,
+      "type" : "Omnivores"
+    }
+  },
+  "timestamp" : 25
+}, {
+  "command" : "endSimulation",
+  "message" : "Simulation has ended.",
+  "timestamp" : 26
 } ]

@@ -1,5 +1,6 @@
 package main.Entities.Soil;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.SoilInput;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,8 +14,7 @@ public abstract class Soil extends Entity {
     private double soilpH;
     private double organicMatter;
     private String type;
-    private double wildcardAttribute;
-    private long soilQuality;
+    private double soilQuality;
     private double blockChance;
 
     public Soil(SoilInput soilInput) {
@@ -26,13 +26,34 @@ public abstract class Soil extends Entity {
         this.type = soilInput.getType();
     }
 
-    protected long soilQualityNormalize(double quality) {
+    protected double soilQualityNormalize(double quality) {
         quality = Math.max(0, Math.min(quality, 100));
-        return Math.round(quality);
+        return Math.round(quality * 100.0) / 100.0;
     }
 
-    protected abstract long computeSoilQuality();
+    @Override
+    public ObjectNode toNode() {
+        ObjectNode soilNode = super.toNode();
+        soilNode.put("type", type);
+        soilNode.put("nitrogen", nitrogen);
+        soilNode.put("waterRetention", waterRetention);
+        soilNode.put("soilpH", soilpH);
+        soilNode.put("organicMatter", organicMatter);
+        soilNode.put("soilQuality", soilQuality);
+        return soilNode;
+    }
+
+    protected abstract double computeSoilQuality();
     protected abstract double computeBlockChance();
 
+    public String getInterpretedSoilQuality() {
+        if (soilQuality < 40) {
+            return "poor";
+        } else if (soilQuality < 70) {
+            return "moderate";
+        } else {
+            return "good";
+        }
+    }
 
 }

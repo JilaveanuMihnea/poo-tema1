@@ -1,5 +1,7 @@
 package main.Entities.Plants;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.PlantInput;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -60,4 +62,10 @@ public class Plant extends Entity {
         return plantType.getBaseOxygen() + ageModifier;
     }
 
+    @Override
+    public ObjectNode toNode() {
+        ObjectNode plantNode = super.toNode();
+        plantNode.put("type", plantType.getTypeName());
+        return plantNode;
+    }
 }

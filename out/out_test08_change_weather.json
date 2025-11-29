@@ -1,5 +1,81 @@
 [ {
   "command" : "startSimulation",
-  "message" : "Simulation started",
+  "message" : "Simulation has started.",
   "timestamp" : 1
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "LightForestSoil",
+      "mass" : 1000.0,
+      "type" : "ForestSoil",
+      "nitrogen" : 2.5,
+      "waterRetention" : 0.5,
+      "soilpH" : 6.7,
+      "organicMatter" : 0.3,
+      "soilQuality" : 4.41,
+      "leafLitter" : 0.2
+    },
+    "air" : {
+      "name" : "Highland Breeze",
+      "mass" : 880000.0,
+      "humidity" : 45.0,
+      "temperature" : 10.0,
+      "oxygenLevel" : 22.0,
+      "airQuality" : 68.4,
+      "type" : "MountainAir",
+      "altitude" : 2600.0
+    },
+    "water" : {
+      "name" : "TranquilPond",
+      "mass" : 35.0,
+      "type" : "pond"
+    },
+    "plants" : {
+      "name" : "ForestMoss",
+      "mass" : 0.3,
+      "type" : "Mosses"
+    }
+  },
+  "timestamp" : 7
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "LightForestSoil",
+      "mass" : 1000.0,
+      "type" : "ForestSoil",
+      "nitrogen" : 2.5,
+      "waterRetention" : 0.5,
+      "soilpH" : 6.7,
+      "organicMatter" : 0.3,
+      "soilQuality" : 4.41,
+      "leafLitter" : 0.2
+    },
+    "air" : {
+      "name" : "Highland Breeze",
+      "mass" : 880000.0,
+      "humidity" : 45.0,
+      "temperature" : 10.0,
+      "oxygenLevel" : 22.0,
+      "airQuality" : 68.4,
+      "type" : "MountainAir",
+      "altitude" : 2600.0
+    },
+    "water" : {
+      "name" : "TranquilPond",
+      "mass" : 35.0,
+      "type" : "pond"
+    },
+    "plants" : {
+      "name" : "ForestMoss",
+      "mass" : 0.3,
+      "type" : "Mosses"
+    }
+  },
+  "timestamp" : 22
+}, {
+  "command" : "endSimulation",
+  "message" : "Simulation has ended.",
+  "timestamp" : 27
 } ]

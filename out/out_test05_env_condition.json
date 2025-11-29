@@ -1,5 +1,75 @@
 [ {
+  "command" : "printEnvConditions",
+  "message" : "ERROR: Simulation not started. Cannot perform action",
+  "timestamp" : 1
+}, {
   "command" : "startSimulation",
-  "message" : "Simulation started",
+  "message" : "Simulation has started.",
   "timestamp" : 2
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "DarkHumus",
+      "mass" : 1200.0,
+      "type" : "ForestSoil",
+      "nitrogen" : 3.0,
+      "waterRetention" : 0.6,
+      "soilpH" : 6.2,
+      "organicMatter" : 0.35,
+      "soilQuality" : 5.29,
+      "leafLitter" : 0.3
+    },
+    "air" : {
+      "name" : "Highland Breeze",
+      "mass" : 880000.0,
+      "humidity" : 45.0,
+      "temperature" : 10.0,
+      "oxygenLevel" : 22.0,
+      "airQuality" : 68.4,
+      "type" : "MountainAir",
+      "altitude" : 2600.0
+    },
+    "plants" : {
+      "name" : "Pine",
+      "mass" : 3.5,
+      "type" : "GymnospermsPlants"
+    }
+  },
+  "timestamp" : 3
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "DarkHumus",
+      "mass" : 1200.0,
+      "type" : "ForestSoil",
+      "nitrogen" : 3.0,
+      "waterRetention" : 0.6,
+      "soilpH" : 6.2,
+      "organicMatter" : 0.35,
+      "soilQuality" : 5.29,
+      "leafLitter" : 0.3
+    },
+    "air" : {
+      "name" : "Highland Breeze",
+      "mass" : 880000.0,
+      "humidity" : 45.0,
+      "temperature" : 10.0,
+      "oxygenLevel" : 22.0,
+      "airQuality" : 68.4,
+      "type" : "MountainAir",
+      "altitude" : 2600.0
+    },
+    "plants" : {
+      "name" : "Pine",
+      "mass" : 3.5,
+      "type" : "GymnospermsPlants"
+    }
+  },
+  "timestamp" : 8
+}, {
+  "command" : "endSimulation",
+  "message" : "Simulation has ended.",
+  "timestamp" : 9
 } ]

@@ -1,5 +1,6 @@
 package main.Entities.Water;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.WaterInput;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -41,5 +42,18 @@ public class Water extends Entity {
                 + 0.2 * (isFrozen ? 0 : 1); // frozen score
         quality *= 100;
         return quality;
+    }
+    @Override
+    public ObjectNode toNode() {
+        ObjectNode waterNode = super.toNode();
+        waterNode.put("type", type);
+//        waterNode.put("salinity", salinity);
+//        waterNode.put("pH", pH);
+//        waterNode.put("purity", purity);
+//        waterNode.put("turbidity", turbidity);
+//        waterNode.put("contaminantIndex", contaminantIndex);
+//        waterNode.put("isFrozen", isFrozen);
+//        waterNode.put("waterQuality", waterQuality);
+        return waterNode;
     }
 }

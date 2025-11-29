@@ -1,9 +1,636 @@
 [ {
   "command" : "startSimulation",
-  "message" : "Simulation started",
+  "message" : "Simulation has started.",
   "timestamp" : 1
 }, {
+  "command" : "printMap",
+  "output" : [ {
+    "section" : [ 0, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 2, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 3, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 0, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 1, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 2, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 3, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 0, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 2, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 3, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 0, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 2, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 3, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  } ],
+  "timestamp" : 2
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "LightForestSoil",
+      "mass" : 1500.0,
+      "type" : "ForestSoil",
+      "nitrogen" : 2.5,
+      "waterRetention" : 0.5,
+      "soilpH" : 7.7,
+      "organicMatter" : 0.3,
+      "soilQuality" : 4.44,
+      "leafLitter" : 0.3
+    },
+    "air" : {
+      "name" : "Spring Air",
+      "mass" : 900000.0,
+      "humidity" : 60.0,
+      "temperature" : 15.0,
+      "oxygenLevel" : 20.0,
+      "airQuality" : 80.6,
+      "type" : "TemperateAir",
+      "pollenLevel" : 14.0
+    },
+    "plants" : {
+      "name" : "Tulip",
+      "mass" : 0.5,
+      "type" : "FloweringPlants"
+    }
+  },
+  "timestamp" : 10
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "LightForestSoil",
+      "mass" : 1500.0,
+      "type" : "ForestSoil",
+      "nitrogen" : 2.5,
+      "waterRetention" : 0.5,
+      "soilpH" : 7.7,
+      "organicMatter" : 0.3,
+      "soilQuality" : 4.44,
+      "leafLitter" : 0.3
+    },
+    "air" : {
+      "name" : "Spring Air",
+      "mass" : 900000.0,
+      "humidity" : 60.0,
+      "temperature" : 15.0,
+      "oxygenLevel" : 20.0,
+      "airQuality" : 80.6,
+      "type" : "TemperateAir",
+      "pollenLevel" : 14.0
+    },
+    "plants" : {
+      "name" : "Tulip",
+      "mass" : 0.5,
+      "type" : "FloweringPlants"
+    }
+  },
+  "timestamp" : 12
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "LightForestSoil",
+      "mass" : 1500.0,
+      "type" : "ForestSoil",
+      "nitrogen" : 2.5,
+      "waterRetention" : 0.5,
+      "soilpH" : 7.7,
+      "organicMatter" : 0.3,
+      "soilQuality" : 4.44,
+      "leafLitter" : 0.3
+    },
+    "air" : {
+      "name" : "Spring Air",
+      "mass" : 900000.0,
+      "humidity" : 60.0,
+      "temperature" : 15.0,
+      "oxygenLevel" : 20.0,
+      "airQuality" : 80.6,
+      "type" : "TemperateAir",
+      "pollenLevel" : 14.0
+    },
+    "plants" : {
+      "name" : "Tulip",
+      "mass" : 0.5,
+      "type" : "FloweringPlants"
+    }
+  },
+  "timestamp" : 13
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "LightForestSoil",
+      "mass" : 1500.0,
+      "type" : "ForestSoil",
+      "nitrogen" : 2.5,
+      "waterRetention" : 0.5,
+      "soilpH" : 7.7,
+      "organicMatter" : 0.3,
+      "soilQuality" : 4.44,
+      "leafLitter" : 0.3
+    },
+    "air" : {
+      "name" : "Spring Air",
+      "mass" : 900000.0,
+      "humidity" : 60.0,
+      "temperature" : 15.0,
+      "oxygenLevel" : 20.0,
+      "airQuality" : 80.6,
+      "type" : "TemperateAir",
+      "pollenLevel" : 14.0
+    },
+    "plants" : {
+      "name" : "Tulip",
+      "mass" : 0.5,
+      "type" : "FloweringPlants"
+    }
+  },
+  "timestamp" : 31
+}, {
+  "command" : "printMap",
+  "output" : [ {
+    "section" : [ 0, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 2, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 3, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 0, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 1, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 2, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 3, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 0, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 2, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 3, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 0, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 2, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 3, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  } ],
+  "timestamp" : 55
+}, {
+  "command" : "endSimulation",
+  "message" : "Simulation has ended.",
+  "timestamp" : 56
+}, {
+  "command" : "printEnvConditions",
+  "message" : "ERROR: Simulation not started. Cannot perform action",
+  "timestamp" : 57
+}, {
   "command" : "startSimulation",
-  "message" : "Simulation started",
+  "message" : "Simulation has started.",
   "timestamp" : 58
+}, {
+  "command" : "printMap",
+  "output" : [ {
+    "section" : [ 0, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 2, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 3, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 0, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 1, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 2, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 3, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 0, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 2, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 3, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 0, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 2, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 3, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  } ],
+  "timestamp" : 59
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "LightForestSoil",
+      "mass" : 1500.0,
+      "type" : "ForestSoil",
+      "nitrogen" : 2.5,
+      "waterRetention" : 0.5,
+      "soilpH" : 7.7,
+      "organicMatter" : 0.3,
+      "soilQuality" : 4.44,
+      "leafLitter" : 0.3
+    },
+    "air" : {
+      "name" : "Spring Air",
+      "mass" : 900000.0,
+      "humidity" : 60.0,
+      "temperature" : 15.0,
+      "oxygenLevel" : 20.0,
+      "airQuality" : 80.6,
+      "type" : "TemperateAir",
+      "pollenLevel" : 14.0
+    },
+    "plants" : {
+      "name" : "Tulip",
+      "mass" : 0.5,
+      "type" : "FloweringPlants"
+    }
+  },
+  "timestamp" : 70
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "LightForestSoil",
+      "mass" : 1500.0,
+      "type" : "ForestSoil",
+      "nitrogen" : 2.5,
+      "waterRetention" : 0.5,
+      "soilpH" : 7.7,
+      "organicMatter" : 0.3,
+      "soilQuality" : 4.44,
+      "leafLitter" : 0.3
+    },
+    "air" : {
+      "name" : "Spring Air",
+      "mass" : 900000.0,
+      "humidity" : 60.0,
+      "temperature" : 15.0,
+      "oxygenLevel" : 20.0,
+      "airQuality" : 80.6,
+      "type" : "TemperateAir",
+      "pollenLevel" : 14.0
+    },
+    "plants" : {
+      "name" : "Tulip",
+      "mass" : 0.5,
+      "type" : "FloweringPlants"
+    }
+  },
+  "timestamp" : 114
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "LightForestSoil",
+      "mass" : 1500.0,
+      "type" : "ForestSoil",
+      "nitrogen" : 2.5,
+      "waterRetention" : 0.5,
+      "soilpH" : 7.7,
+      "organicMatter" : 0.3,
+      "soilQuality" : 4.44,
+      "leafLitter" : 0.3
+    },
+    "air" : {
+      "name" : "Spring Air",
+      "mass" : 900000.0,
+      "humidity" : 60.0,
+      "temperature" : 15.0,
+      "oxygenLevel" : 20.0,
+      "airQuality" : 80.6,
+      "type" : "TemperateAir",
+      "pollenLevel" : 14.0
+    },
+    "plants" : {
+      "name" : "Tulip",
+      "mass" : 0.5,
+      "type" : "FloweringPlants"
+    }
+  },
+  "timestamp" : 118
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "LightForestSoil",
+      "mass" : 1500.0,
+      "type" : "ForestSoil",
+      "nitrogen" : 2.5,
+      "waterRetention" : 0.5,
+      "soilpH" : 7.7,
+      "organicMatter" : 0.3,
+      "soilQuality" : 4.44,
+      "leafLitter" : 0.3
+    },
+    "air" : {
+      "name" : "Spring Air",
+      "mass" : 900000.0,
+      "humidity" : 60.0,
+      "temperature" : 15.0,
+      "oxygenLevel" : 20.0,
+      "airQuality" : 80.6,
+      "type" : "TemperateAir",
+      "pollenLevel" : 14.0
+    },
+    "plants" : {
+      "name" : "Tulip",
+      "mass" : 0.5,
+      "type" : "FloweringPlants"
+    }
+  },
+  "timestamp" : 119
+}, {
+  "command" : "printMap",
+  "output" : [ {
+    "section" : [ 0, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 2, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 3, 0 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 0, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 1, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 2, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 0
+  }, {
+    "section" : [ 3, 1 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 0, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 2, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 3, 2 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 0, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 1, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 2
+  }, {
+    "section" : [ 2, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  }, {
+    "section" : [ 3, 3 ],
+    "soilQuality" : "poor",
+    "airQuality" : "good",
+    "totalNrOfObjects" : 1
+  } ],
+  "timestamp" : 127
+}, {
+  "command" : "printEnvConditions",
+  "output" : {
+    "soil" : {
+      "name" : "LightForestSoil",
+      "mass" : 1500.0,
+      "type" : "ForestSoil",
+      "nitrogen" : 2.5,
+      "waterRetention" : 0.5,
+      "soilpH" : 7.7,
+      "organicMatter" : 0.3,
+      "soilQuality" : 4.44,
+      "leafLitter" : 0.3
+    },
+    "air" : {
+      "name" : "Spring Air",
+      "mass" : 900000.0,
+      "humidity" : 60.0,
+      "temperature" : 15.0,
+      "oxygenLevel" : 20.0,
+      "airQuality" : 80.6,
+      "type" : "TemperateAir",
+      "pollenLevel" : 14.0
+    },
+    "plants" : {
+      "name" : "Tulip",
+      "mass" : 0.5,
+      "type" : "FloweringPlants"
+    }
+  },
+  "timestamp" : 129
+}, {
+  "command" : "endSimulation",
+  "message" : "Simulation has ended.",
+  "timestamp" : 130
 } ]
