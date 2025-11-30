@@ -41,4 +41,8 @@ public class Animal extends Entity {
         animalNode.put("type", animalType.getTypeName());
         return animalNode;
     }
+
+    public double getAttackChance() {
+        return animalType.getAttackChance();
+    }
 }

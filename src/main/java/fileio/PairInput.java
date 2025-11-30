@@ -10,4 +10,9 @@ import lombok.NoArgsConstructor;
 public final class PairInput {
     private int x;
     private int y;
+
+    public PairInput(final int x, final int y) {
+        this.x = x;
+        this.y = y;
+    }
 }

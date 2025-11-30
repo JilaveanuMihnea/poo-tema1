@@ -3,6 +3,10 @@
   "message" : "Simulation has started.",
   "timestamp" : 1
 }, {
+  "command" : "moveRobot",
+  "message" : "ERROR: Not enough battery left. Cannot perform action",
+  "timestamp" : 4
+}, {
   "command" : "printEnvConditions",
   "output" : {
     "soil" : {
@@ -34,6 +38,18 @@
   },
   "timestamp" : 5
 }, {
+  "command" : "getEnergyStatus",
+  "message" : "TerraBot has 20 energy points left.",
+  "timestamp" : 7
+}, {
+  "command" : "rechargeBattery",
+  "message" : "Robot battery is charging.",
+  "timestamp" : 10
+}, {
+  "command" : "getEnergyStatus",
+  "message" : "TerraBot has 70 energy points left.",
+  "timestamp" : 61
+}, {
   "command" : "printEnvConditions",
   "output" : {
     "soil" : {
@@ -64,6 +80,22 @@
     }
   },
   "timestamp" : 62
+}, {
+  "command" : "moveRobot",
+  "message" : "The robot has successfully moved to position (1, 0).",
+  "timestamp" : 63
+}, {
+  "command" : "moveRobot",
+  "message" : "The robot has successfully moved to position (0, 0).",
+  "timestamp" : 64
+}, {
+  "command" : "moveRobot",
+  "message" : "The robot has successfully moved to position (1, 0).",
+  "timestamp" : 65
+}, {
+  "command" : "moveRobot",
+  "message" : "The robot has successfully moved to position (0, 0).",
+  "timestamp" : 66
 }, {
   "command" : "endSimulation",
   "message" : "Simulation has ended.",

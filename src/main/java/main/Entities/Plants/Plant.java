@@ -44,22 +44,26 @@ public class Plant extends Entity {
         }
     }
 
-    public float getOxygenProduction() {
-        float ageModifier;
+    public double getOxygenProduction() {
+        double ageModifier;
         switch(plantAge) {
             case YOUNG:
-                ageModifier = 0.2f;
+                ageModifier = 0.2;
                 break;
             case MATURE:
-                ageModifier = 0.7f;
+                ageModifier = 0.7;
                 break;
             case OLD:
-                ageModifier = 0.4f;
+                ageModifier = 0.4;
                 break;
             default:
-                ageModifier = 0.0f;
+                ageModifier = 0.0;
         }
         return plantType.getBaseOxygen() + ageModifier;
+    }
+
+    public double getTangleChance() {
+        return plantType.getTangleChance();
     }
 
     @Override

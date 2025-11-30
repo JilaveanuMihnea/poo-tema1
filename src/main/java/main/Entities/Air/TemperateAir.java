@@ -7,14 +7,15 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class TemperateAir extends Air {
-    private final static int maxScore = 82;
+public final class TemperateAir extends Air {
     private double pollenLevel;
 
     public TemperateAir(final AirInput airInput) {
         super(airInput);
         this.pollenLevel = airInput.getPollenLevel();
-        this.setAirQuality(computeAirQuality());
+        this.setAirQuality(computeAirQuality(0));
+        setMaxScore(84);
+        setDamageChance(computeDamageChance());
     }
 
     @Override
@@ -26,9 +27,14 @@ public class TemperateAir extends Air {
     }
 
     @Override
-    protected double computeAirQuality() {
+    protected double computeAirQuality(double weatherModifier) {
         double quality = getOxygenLevel() * 2 + getHumidity() * 0.7
-                         - pollenLevel * 0.1;
+                         - pollenLevel * 0.1 + weatherModifier;
         return airQualityNormalize(quality);
+    }
+
+    @Override
+    protected double computeWeatherModifier(Object weatherCondition) {
+        return -(((String) weatherCondition).equals("Spring") ? 15 : 0);
     }
 }

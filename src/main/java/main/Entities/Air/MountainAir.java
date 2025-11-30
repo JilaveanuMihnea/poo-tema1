@@ -7,14 +7,15 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class MountainAir extends Air {
-    private final static int maxScore = 82;
+public final class MountainAir extends Air {
     private double altitude;
 
     public MountainAir(final AirInput airInput) {
         super(airInput);
         this.altitude = (airInput.getAltitude());
-        this.setAirQuality(computeAirQuality());
+        this.setAirQuality(computeAirQuality(0));
+        setMaxScore(78);
+        setDamageChance(computeDamageChance());
     }
 
     @Override
@@ -26,9 +27,14 @@ public class MountainAir extends Air {
     }
 
     @Override
-    protected double computeAirQuality() {
+    protected double computeAirQuality(double weatherModifier) {
         double quality = getOxygenLevel() * 2 - altitude / 1000
-                         + getHumidity() * 0.6;
+                         + getHumidity() * 0.6 + weatherModifier;
         return airQualityNormalize(quality);
+    }
+
+    @Override
+    protected double computeWeatherModifier(Object weatherCondition) {
+        return -(Double.parseDouble(weatherCondition.toString()) * 0.1);
     }
 }

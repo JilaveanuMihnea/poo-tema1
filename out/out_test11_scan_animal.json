@@ -3,6 +3,14 @@
   "message" : "Simulation has started.",
   "timestamp" : 1
 }, {
+  "command" : "moveRobot",
+  "message" : "The robot has successfully moved to position (0, 1).",
+  "timestamp" : 2
+}, {
+  "command" : "moveRobot",
+  "message" : "The robot has successfully moved to position (0, 0).",
+  "timestamp" : 3
+}, {
   "command" : "printEnvConditions",
   "output" : {
     "soil" : {
@@ -39,6 +47,22 @@
   },
   "timestamp" : 5
 }, {
+  "command" : "getEnergyStatus",
+  "message" : "TerraBot has 4977 energy points left.",
+  "timestamp" : 6
+}, {
+  "command" : "moveRobot",
+  "message" : "The robot has successfully moved to position (0, 1).",
+  "timestamp" : 7
+}, {
+  "command" : "getEnergyStatus",
+  "message" : "TerraBot has 4976 energy points left.",
+  "timestamp" : 8
+}, {
+  "command" : "moveRobot",
+  "message" : "The robot has successfully moved to position (0, 0).",
+  "timestamp" : 9
+}, {
   "command" : "printEnvConditions",
   "output" : {
     "soil" : {
@@ -74,6 +98,14 @@
     }
   },
   "timestamp" : 10
+}, {
+  "command" : "moveRobot",
+  "message" : "The robot has successfully moved to position (0, 1).",
+  "timestamp" : 11
+}, {
+  "command" : "moveRobot",
+  "message" : "The robot has successfully moved to position (0, 0).",
+  "timestamp" : 12
 }, {
   "command" : "endSimulation",
   "message" : "Simulation has ended.",

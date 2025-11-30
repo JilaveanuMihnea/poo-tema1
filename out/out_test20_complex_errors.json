@@ -3,18 +3,42 @@
   "message" : "Simulation has started.",
   "timestamp" : 2
 }, {
+  "command" : "moveRobot",
+  "message" : "ERROR: Not enough battery left. Cannot perform action",
+  "timestamp" : 3
+}, {
+  "command" : "moveRobot",
+  "message" : "ERROR: Not enough battery left. Cannot perform action",
+  "timestamp" : 4
+}, {
+  "command" : "getEnergyStatus",
+  "message" : "TerraBot has 33 energy points left.",
+  "timestamp" : 5
+}, {
+  "command" : "rechargeBattery",
+  "message" : "Robot battery is charging.",
+  "timestamp" : 7
+}, {
+  "command" : "moveRobot",
+  "message" : "The robot has successfully moved to position (1, 0).",
+  "timestamp" : 19
+}, {
+  "command" : "moveRobot",
+  "message" : "ERROR: Not enough battery left. Cannot perform action",
+  "timestamp" : 20
+}, {
   "command" : "printEnvConditions",
   "output" : {
     "soil" : {
-      "name" : "LightForestSoil",
-      "mass" : 1000.0,
-      "type" : "ForestSoil",
-      "nitrogen" : 2.5,
-      "waterRetention" : 0.5,
-      "soilpH" : 6.7,
-      "organicMatter" : 0.3,
-      "soilQuality" : 4.41,
-      "leafLitter" : 0.2
+      "name" : "SteppeGrasslandSoil",
+      "mass" : 900.0,
+      "type" : "GrasslandSoil",
+      "nitrogen" : 1.2,
+      "waterRetention" : 0.4,
+      "soilpH" : 6.5,
+      "organicMatter" : 0.2,
+      "soilQuality" : 11.46,
+      "rootDensity" : 12.0
     },
     "air" : {
       "name" : "Dry Desert Air",
@@ -27,17 +51,21 @@
       "dustParticles" : 12.5
     },
     "water" : {
-      "name" : "TranquilPond",
-      "mass" : 35.0,
-      "type" : "pond"
+      "name" : "SilverStream",
+      "mass" : 500.0,
+      "type" : "river"
     },
     "plants" : {
-      "name" : "Sunflower",
-      "mass" : 0.6,
-      "type" : "FloweringPlants"
+      "name" : "ForestMoss",
+      "mass" : 0.3,
+      "type" : "Mosses"
     }
   },
   "timestamp" : 21
+}, {
+  "command" : "moveRobot",
+  "message" : "ERROR: Not enough battery left. Cannot perform action",
+  "timestamp" : 23
 }, {
   "command" : "printMap",
   "output" : [ {
@@ -122,6 +150,10 @@
     "totalNrOfObjects" : 2
   } ],
   "timestamp" : 24
+}, {
+  "command" : "moveRobot",
+  "message" : "ERROR: Not enough battery left. Cannot perform action",
+  "timestamp" : 25
 }, {
   "command" : "endSimulation",
   "message" : "Simulation has ended.",
@@ -215,6 +247,30 @@
   } ],
   "timestamp" : 29
 }, {
+  "command" : "moveRobot",
+  "message" : "ERROR: Not enough battery left. Cannot perform action",
+  "timestamp" : 30
+}, {
+  "command" : "rechargeBattery",
+  "message" : "Robot battery is charging.",
+  "timestamp" : 32
+}, {
+  "command" : "rechargeBattery",
+  "message" : "Robot battery is charging.",
+  "timestamp" : 34
+}, {
+  "command" : "getEnergyStatus",
+  "message" : "TerraBot has 30 energy points left.",
+  "timestamp" : 55
+}, {
+  "command" : "rechargeBattery",
+  "message" : "Robot battery is charging.",
+  "timestamp" : 59
+}, {
+  "command" : "rechargeBattery",
+  "message" : "ERROR: Robot still charging. Cannot perform action",
+  "timestamp" : 60
+}, {
   "command" : "endSimulation",
   "message" : "Simulation has ended.",
   "timestamp" : 61
@@ -222,4 +278,8 @@
   "command" : "endSimulation",
   "message" : "ERROR: Simulation not started. Cannot perform action",
   "timestamp" : 62
+}, {
+  "command" : "rechargeBattery",
+  "message" : "ERROR: Simulation not started. Cannot perform action",
+  "timestamp" : 63
 } ]

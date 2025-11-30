@@ -7,14 +7,15 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class PolarAir extends Air {
-    private final static int maxScore = 82;
+public final class PolarAir extends Air {
     private double iceCrystalConcentration;
 
     public PolarAir(final AirInput airInput) {
         super(airInput);
         this.iceCrystalConcentration = airInput.getIceCrystalConcentration();
-        this.setAirQuality(computeAirQuality());
+        this.setAirQuality(computeAirQuality(0));
+        setMaxScore(142);
+        setDamageChance(computeDamageChance());
     }
 
     @Override
@@ -26,9 +27,14 @@ public class PolarAir extends Air {
     }
 
     @Override
-    protected double computeAirQuality() {
+    protected double computeAirQuality(double weatherModifier) {
         double quality =  getOxygenLevel() * 2 + (100 - Math.abs(getTemperature()))
-                          - iceCrystalConcentration * 0.05;
+                          - iceCrystalConcentration * 0.05 + weatherModifier;
         return airQualityNormalize(quality);
+    }
+
+    @Override
+    protected double computeWeatherModifier(Object weatherCondition) {
+        return -((double) weatherCondition * 0.2);
     }
 }

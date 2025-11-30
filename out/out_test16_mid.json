@@ -132,6 +132,30 @@
   } ],
   "timestamp" : 2
 }, {
+  "command" : "moveRobot",
+  "message" : "The robot has successfully moved to position (0, 1).",
+  "timestamp" : 9
+}, {
+  "command" : "moveRobot",
+  "message" : "The robot has successfully moved to position (0, 2).",
+  "timestamp" : 10
+}, {
+  "command" : "moveRobot",
+  "message" : "The robot has successfully moved to position (0, 3).",
+  "timestamp" : 12
+}, {
+  "command" : "moveRobot",
+  "message" : "The robot has successfully moved to position (0, 2).",
+  "timestamp" : 14
+}, {
+  "command" : "getEnergyStatus",
+  "message" : "TerraBot has 46 energy points left.",
+  "timestamp" : 16
+}, {
+  "command" : "moveRobot",
+  "message" : "The robot has successfully moved to position (0, 3).",
+  "timestamp" : 17
+}, {
   "command" : "printMap",
   "output" : [ {
     "section" : [ 0, 0 ],

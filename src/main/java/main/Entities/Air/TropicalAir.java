@@ -7,15 +7,17 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class TropicalAir extends Air {
-    private final static int maxScore = 82;
+public final class TropicalAir extends Air {
     private double co2Level;
 
     public TropicalAir(final AirInput airInput) {
         super(airInput);
         this.co2Level = airInput.getCo2Level();
-        this.setAirQuality(computeAirQuality());
+        this.setAirQuality(computeAirQuality(0));
+        setMaxScore(82);
+        setDamageChance(computeDamageChance());
     }
+
     @Override
     public ObjectNode toNode() {
         ObjectNode tropicalAirNode = super.toNode();
@@ -25,8 +27,14 @@ public class TropicalAir extends Air {
     }
 
     @Override
-    protected double computeAirQuality() {
-        double quality = getOxygenLevel() * 2 + getHumidity() * 0.5 - co2Level * 0.01;
+    protected double computeAirQuality(double weatherModifier) {
+        double quality = getOxygenLevel() * 2 + getHumidity() * 0.5
+                         - co2Level * 0.01 + weatherModifier;
         return airQualityNormalize(quality);
+    }
+
+    @Override
+    protected double computeWeatherModifier(Object weatherCondition) {
+        return ((double) weatherCondition * 0.3);
     }
 }

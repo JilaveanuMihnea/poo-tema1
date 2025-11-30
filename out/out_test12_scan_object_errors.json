@@ -3,6 +3,26 @@
   "message" : "Simulation has started.",
   "timestamp" : 2
 }, {
+  "command" : "moveRobot",
+  "message" : "ERROR: Not enough battery left. Cannot perform action",
+  "timestamp" : 3
+}, {
+  "command" : "moveRobot",
+  "message" : "ERROR: Not enough battery left. Cannot perform action",
+  "timestamp" : 4
+}, {
+  "command" : "getEnergyStatus",
+  "message" : "TerraBot has 13 energy points left.",
+  "timestamp" : 6
+}, {
+  "command" : "rechargeBattery",
+  "message" : "Robot battery is charging.",
+  "timestamp" : 7
+}, {
+  "command" : "moveRobot",
+  "message" : "The robot has successfully moved to position (1, 0).",
+  "timestamp" : 29
+}, {
   "command" : "endSimulation",
   "message" : "Simulation has ended.",
   "timestamp" : 30

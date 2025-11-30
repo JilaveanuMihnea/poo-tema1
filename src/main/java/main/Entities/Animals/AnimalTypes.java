@@ -7,15 +7,15 @@ public enum AnimalTypes {
     DETRITIVORE(90, "Detritivores"),
     PARASITE(10, "Parasites");
 
-    private float attackChance;
+    private double attackChance;
     private String typeName;
 
     AnimalTypes(int attackPossibility, String typeName) {
-        this.attackChance = (100 - attackPossibility) / 10.0f;
+        this.attackChance = (100 - attackPossibility) / 10.0;
         this.typeName = typeName;
     }
 
-    public float getAttackChance() {
+    public double getAttackChance() {
         return attackChance;
     }
 
