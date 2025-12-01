@@ -26,7 +26,7 @@ public final class TundraSoil extends Soil {
 
     @Override
     protected double computeBlockChance() {
-        return (50 - permafrostDepth) / 50 * 100;
+        return Math.max(0, (50 - permafrostDepth) / 50 * 100);
     }
 
     @Override

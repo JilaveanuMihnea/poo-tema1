@@ -8,7 +8,7 @@
     "section" : [ 0, 0 ],
     "soilQuality" : "poor",
     "airQuality" : "good",
-    "totalNrOfObjects" : 3
+    "totalNrOfObjects" : 2
   }, {
     "section" : [ 1, 0 ],
     "soilQuality" : "poor",
@@ -23,12 +23,7 @@
     "section" : [ 3, 0 ],
     "soilQuality" : "poor",
     "airQuality" : "good",
-    "totalNrOfObjects" : 2
-  }, {
-    "section" : [ 4, 0 ],
-    "soilQuality" : "poor",
-    "airQuality" : "good",
-    "totalNrOfObjects" : 1
+    "totalNrOfObjects" : 0
   }, {
     "section" : [ 0, 1 ],
     "soilQuality" : "poor",
@@ -38,7 +33,7 @@
     "section" : [ 1, 1 ],
     "soilQuality" : "poor",
     "airQuality" : "good",
-    "totalNrOfObjects" : 3
+    "totalNrOfObjects" : 2
   }, {
     "section" : [ 2, 1 ],
     "soilQuality" : "poor",
@@ -48,46 +43,36 @@
     "section" : [ 3, 1 ],
     "soilQuality" : "poor",
     "airQuality" : "good",
-    "totalNrOfObjects" : 1
-  }, {
-    "section" : [ 4, 1 ],
-    "soilQuality" : "poor",
-    "airQuality" : "good",
-    "totalNrOfObjects" : 3
+    "totalNrOfObjects" : 2
   }, {
     "section" : [ 0, 2 ],
     "soilQuality" : "poor",
-    "airQuality" : "good",
-    "totalNrOfObjects" : 2
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 1
   }, {
     "section" : [ 1, 2 ],
     "soilQuality" : "poor",
-    "airQuality" : "good",
-    "totalNrOfObjects" : 2
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 1
   }, {
     "section" : [ 2, 2 ],
     "soilQuality" : "poor",
     "airQuality" : "good",
-    "totalNrOfObjects" : 2
+    "totalNrOfObjects" : 1
   }, {
     "section" : [ 3, 2 ],
     "soilQuality" : "poor",
     "airQuality" : "good",
     "totalNrOfObjects" : 1
   }, {
-    "section" : [ 4, 2 ],
-    "soilQuality" : "poor",
-    "airQuality" : "poor",
-    "totalNrOfObjects" : 0
-  }, {
     "section" : [ 0, 3 ],
     "soilQuality" : "poor",
-    "airQuality" : "good",
-    "totalNrOfObjects" : 2
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 1
   }, {
     "section" : [ 1, 3 ],
     "soilQuality" : "poor",
-    "airQuality" : "good",
+    "airQuality" : "poor",
     "totalNrOfObjects" : 1
   }, {
     "section" : [ 2, 3 ],
@@ -98,77 +83,42 @@
     "section" : [ 3, 3 ],
     "soilQuality" : "poor",
     "airQuality" : "good",
-    "totalNrOfObjects" : 2
-  }, {
-    "section" : [ 4, 3 ],
-    "soilQuality" : "poor",
-    "airQuality" : "poor",
     "totalNrOfObjects" : 1
-  }, {
-    "section" : [ 0, 4 ],
-    "soilQuality" : "poor",
-    "airQuality" : "moderate",
-    "totalNrOfObjects" : 1
-  }, {
-    "section" : [ 1, 4 ],
-    "soilQuality" : "poor",
-    "airQuality" : "moderate",
-    "totalNrOfObjects" : 1
-  }, {
-    "section" : [ 2, 4 ],
-    "soilQuality" : "poor",
-    "airQuality" : "moderate",
-    "totalNrOfObjects" : 1
-  }, {
-    "section" : [ 3, 4 ],
-    "soilQuality" : "poor",
-    "airQuality" : "moderate",
-    "totalNrOfObjects" : 0
-  }, {
-    "section" : [ 4, 4 ],
-    "soilQuality" : "poor",
-    "airQuality" : "moderate",
-    "totalNrOfObjects" : 0
   } ],
   "timestamp" : 2
 }, {
   "command" : "printEnvConditions",
   "output" : {
     "soil" : {
-      "name" : "AncientForest",
-      "mass" : 1080.0,
-      "type" : "ForestSoil",
-      "nitrogen" : 3.4,
-      "waterRetention" : 0.82,
-      "soilpH" : 6.0,
-      "organicMatter" : 0.52,
-      "soilQuality" : 6.48,
-      "leafLitter" : 0.42
+      "name" : "BoggyMarsh",
+      "mass" : 1120.0,
+      "type" : "SwampSoil",
+      "nitrogen" : 2.3,
+      "waterRetention" : 0.88,
+      "soilpH" : 5.8,
+      "organicMatter" : 0.68,
+      "soilQuality" : 0.0,
+      "waterLogging" : 0.92
     },
     "air" : {
-      "name" : "Rainforest Mist",
-      "mass" : 980000.0,
-      "humidity" : 90.0,
-      "temperature" : 31.0,
+      "name" : "Swamp Vapor",
+      "mass" : 930000.0,
+      "humidity" : 88.0,
+      "temperature" : 29.0,
       "oxygenLevel" : 21.0,
-      "airQuality" : 87.0,
+      "airQuality" : 86.0,
       "type" : "TropicalAir",
-      "co2Level" : 0.042
+      "co2Level" : 0.05
     },
     "water" : {
-      "name" : "JunglePond",
-      "mass" : 45.0,
+      "name" : "MurkyPond",
+      "mass" : 28.0,
       "type" : "pond"
     },
     "plants" : {
-      "name" : "TropicalFern",
-      "mass" : 0.95,
+      "name" : "SwampFern",
+      "mass" : 0.75,
       "type" : "Ferns"
-    },
-    "animals" : {
-      "name" : "Monkey",
-      "mass" : 12.0,
-      "type" : "Omnivores"
     }
   },
   "timestamp" : 3
@@ -343,7 +293,7 @@
       "oxygenLevel" : 21.0,
       "airQuality" : 87.0,
       "type" : "TropicalAir",
-      "co2Level" : 0.042
+      "co2Level" : 0.04
     },
     "water" : {
       "name" : "JunglePond",

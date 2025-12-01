@@ -26,8 +26,9 @@ public final class ForestSoil extends Soil {
 
     @Override
     protected double computeBlockChance() {
-        return (this.getWaterRetention() * 0.6 + leafLitter * 0.4) / 80 * 100;
+        return Math.max(0, (this.getWaterRetention() * 0.6 + leafLitter * 0.4) / 80 * 100);
     }
+
     @Override
     public ObjectNode toNode() {
         ObjectNode forestSoilNode = super.toNode();

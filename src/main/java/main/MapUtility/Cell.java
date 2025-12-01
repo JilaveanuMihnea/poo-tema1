@@ -49,4 +49,21 @@ public final class Cell {
         return cellNode;
     }
 
+    public int computeConsumption() {
+        int count = 2;
+        double sum = soil.getBlockChance();
+        sum += air.getDamageChance();
+        if (animal != null) {
+            sum += animal.getAttackChance();
+            count++;
+        }
+        if (plant != null) {
+            sum += plant.getTangleChance();
+            count++;
+        }
+        sum = Math.abs(sum / count);
+
+        return (int) Math.round(sum);
+    }
+
 }

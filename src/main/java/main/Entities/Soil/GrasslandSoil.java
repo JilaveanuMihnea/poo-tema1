@@ -26,7 +26,7 @@ public final class GrasslandSoil extends Soil {
 
     @Override
     protected double computeBlockChance() {
-        return (50 - rootDensity + this.getWaterRetention() * 0.5) / 75 * 100;
+        return Math.max(0, (50 - rootDensity + this.getWaterRetention() * 0.5) / 75 * 100);
     }
     @Override
     public ObjectNode toNode() {
