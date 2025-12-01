@@ -11,6 +11,10 @@
   "message" : "The robot has successfully moved to position (0, 0).",
   "timestamp" : 3
 }, {
+  "command" : "scanObject",
+  "message" : "The scanned object is an animal.",
+  "timestamp" : 4
+}, {
   "command" : "printEnvConditions",
   "output" : {
     "soil" : {
@@ -48,7 +52,7 @@
   "timestamp" : 5
 }, {
   "command" : "getEnergyStatus",
-  "message" : "TerraBot has 4977 energy points left.",
+  "message" : "TerraBot has 4967 energy points left.",
   "timestamp" : 6
 }, {
   "command" : "moveRobot",
@@ -56,25 +60,25 @@
   "timestamp" : 7
 }, {
   "command" : "getEnergyStatus",
-  "message" : "TerraBot has 4976 energy points left.",
+  "message" : "TerraBot has 4964 energy points left.",
   "timestamp" : 8
 }, {
   "command" : "moveRobot",
-  "message" : "The robot has successfully moved to position (0, 0).",
+  "message" : "The robot has successfully moved to position (0, 2).",
   "timestamp" : 9
 }, {
   "command" : "printEnvConditions",
   "output" : {
     "soil" : {
-      "name" : "ArcticTundraSoil",
-      "mass" : 800.0,
-      "type" : "TundraSoil",
-      "nitrogen" : 0.9,
-      "waterRetention" : 0.3,
-      "soilpH" : 7.5,
-      "organicMatter" : 0.05,
-      "soilQuality" : 0.0,
-      "permafrostDepth" : 6.0
+      "name" : "SteppeGrasslandSoil",
+      "mass" : 900.0,
+      "type" : "GrasslandSoil",
+      "nitrogen" : 0.7,
+      "waterRetention" : 0.9,
+      "soilpH" : 7.4,
+      "organicMatter" : 0.6,
+      "soilQuality" : 11.41,
+      "rootDensity" : 12.0
     },
     "air" : {
       "name" : "Humid Tropical Air",
@@ -85,16 +89,6 @@
       "airQuality" : 84.5,
       "type" : "TropicalAir",
       "co2Level" : 0.04
-    },
-    "plants" : {
-      "name" : "Tulip",
-      "mass" : 0.5,
-      "type" : "FloweringPlants"
-    },
-    "animals" : {
-      "name" : "Bear",
-      "mass" : 300.0,
-      "type" : "Omnivores"
     }
   },
   "timestamp" : 10
@@ -104,7 +98,7 @@
   "timestamp" : 11
 }, {
   "command" : "moveRobot",
-  "message" : "The robot has successfully moved to position (0, 0).",
+  "message" : "The robot has successfully moved to position (0, 2).",
   "timestamp" : 12
 }, {
   "command" : "endSimulation",

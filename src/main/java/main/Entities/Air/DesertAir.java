@@ -15,7 +15,7 @@ public final class DesertAir extends Air {
         this.dustParticles = airInput.getDustParticles();
         this.setAirQuality(computeAirQuality(0));
         setMaxScore(65);
-        setDamageChance(computeDamageChance());
+        setDamageChance(Math.max(0, computeDamageChance()));
     }
 
     @Override

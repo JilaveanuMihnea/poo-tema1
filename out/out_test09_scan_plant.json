@@ -3,6 +3,10 @@
   "message" : "Simulation has started.",
   "timestamp" : 1
 }, {
+  "command" : "scanObject",
+  "message" : "The scanned object is a plant.",
+  "timestamp" : 2
+}, {
   "command" : "printEnvConditions",
   "output" : {
     "soil" : {
@@ -21,8 +25,8 @@
       "mass" : 950000.0,
       "humidity" : 85.0,
       "temperature" : 30.0,
-      "oxygenLevel" : 21.0,
-      "airQuality" : 84.5,
+      "oxygenLevel" : 27.2,
+      "airQuality" : 96.9,
       "type" : "TropicalAir",
       "co2Level" : 0.04
     },
@@ -44,7 +48,7 @@
   "timestamp" : 4
 }, {
   "command" : "getEnergyStatus",
-  "message" : "TerraBot has 4999 energy points left.",
+  "message" : "TerraBot has 4990 energy points left.",
   "timestamp" : 5
 }, {
   "command" : "moveRobot",
@@ -69,8 +73,8 @@
       "mass" : 950000.0,
       "humidity" : 85.0,
       "temperature" : 30.0,
-      "oxygenLevel" : 21.0,
-      "airQuality" : 84.5,
+      "oxygenLevel" : 52.5,
+      "airQuality" : 100.0,
       "type" : "TropicalAir",
       "co2Level" : 0.04
     },
@@ -96,7 +100,7 @@
   "timestamp" : 9
 }, {
   "command" : "getEnergyStatus",
-  "message" : "TerraBot has 4954 energy points left.",
+  "message" : "TerraBot has 4941 energy points left.",
   "timestamp" : 10
 }, {
   "command" : "moveRobot",
@@ -125,8 +129,8 @@
       "mass" : 950000.0,
       "humidity" : 85.0,
       "temperature" : 30.0,
-      "oxygenLevel" : 21.0,
-      "airQuality" : 84.5,
+      "oxygenLevel" : 92.1,
+      "airQuality" : 100.0,
       "type" : "TropicalAir",
       "co2Level" : 0.04
     },

@@ -13,27 +13,17 @@
     "section" : [ 1, 0 ],
     "soilQuality" : "poor",
     "airQuality" : "good",
-    "totalNrOfObjects" : 0
+    "totalNrOfObjects" : 2
   }, {
     "section" : [ 2, 0 ],
     "soilQuality" : "poor",
     "airQuality" : "good",
     "totalNrOfObjects" : 1
   }, {
-    "section" : [ 3, 0 ],
-    "soilQuality" : "poor",
-    "airQuality" : "good",
-    "totalNrOfObjects" : 1
-  }, {
-    "section" : [ 4, 0 ],
-    "soilQuality" : "poor",
-    "airQuality" : "moderate",
-    "totalNrOfObjects" : 1
-  }, {
     "section" : [ 0, 1 ],
     "soilQuality" : "poor",
     "airQuality" : "good",
-    "totalNrOfObjects" : 1
+    "totalNrOfObjects" : 2
   }, {
     "section" : [ 1, 1 ],
     "soilQuality" : "poor",
@@ -42,122 +32,52 @@
   }, {
     "section" : [ 2, 1 ],
     "soilQuality" : "poor",
-    "airQuality" : "good",
-    "totalNrOfObjects" : 2
-  }, {
-    "section" : [ 3, 1 ],
-    "soilQuality" : "poor",
-    "airQuality" : "good",
-    "totalNrOfObjects" : 1
-  }, {
-    "section" : [ 4, 1 ],
-    "soilQuality" : "poor",
     "airQuality" : "moderate",
     "totalNrOfObjects" : 1
   }, {
     "section" : [ 0, 2 ],
     "soilQuality" : "poor",
     "airQuality" : "good",
-    "totalNrOfObjects" : 2
+    "totalNrOfObjects" : 1
   }, {
     "section" : [ 1, 2 ],
     "soilQuality" : "poor",
-    "airQuality" : "good",
-    "totalNrOfObjects" : 2
+    "airQuality" : "poor",
+    "totalNrOfObjects" : 1
   }, {
     "section" : [ 2, 2 ],
     "soilQuality" : "poor",
-    "airQuality" : "good",
-    "totalNrOfObjects" : 2
-  }, {
-    "section" : [ 3, 2 ],
-    "soilQuality" : "poor",
-    "airQuality" : "good",
-    "totalNrOfObjects" : 2
-  }, {
-    "section" : [ 4, 2 ],
-    "soilQuality" : "poor",
-    "airQuality" : "moderate",
-    "totalNrOfObjects" : 1
-  }, {
-    "section" : [ 0, 3 ],
-    "soilQuality" : "poor",
-    "airQuality" : "good",
-    "totalNrOfObjects" : 1
-  }, {
-    "section" : [ 1, 3 ],
-    "soilQuality" : "poor",
-    "airQuality" : "good",
-    "totalNrOfObjects" : 2
-  }, {
-    "section" : [ 2, 3 ],
-    "soilQuality" : "poor",
-    "airQuality" : "good",
-    "totalNrOfObjects" : 2
-  }, {
-    "section" : [ 3, 3 ],
-    "soilQuality" : "poor",
-    "airQuality" : "good",
-    "totalNrOfObjects" : 1
-  }, {
-    "section" : [ 4, 3 ],
-    "soilQuality" : "poor",
-    "airQuality" : "moderate",
-    "totalNrOfObjects" : 1
-  }, {
-    "section" : [ 0, 4 ],
-    "soilQuality" : "poor",
     "airQuality" : "poor",
     "totalNrOfObjects" : 1
-  }, {
-    "section" : [ 1, 4 ],
-    "soilQuality" : "poor",
-    "airQuality" : "poor",
-    "totalNrOfObjects" : 1
-  }, {
-    "section" : [ 2, 4 ],
-    "soilQuality" : "poor",
-    "airQuality" : "poor",
-    "totalNrOfObjects" : 2
-  }, {
-    "section" : [ 3, 4 ],
-    "soilQuality" : "poor",
-    "airQuality" : "poor",
-    "totalNrOfObjects" : 1
-  }, {
-    "section" : [ 4, 4 ],
-    "soilQuality" : "poor",
-    "airQuality" : "moderate",
-    "totalNrOfObjects" : 2
   } ],
   "timestamp" : 2
 }, {
   "command" : "printEnvConditions",
   "output" : {
     "soil" : {
-      "name" : "DenseForestSoil",
-      "mass" : 1050.0,
+      "name" : "RichForestSoil",
+      "mass" : 950.0,
       "type" : "ForestSoil",
-      "nitrogen" : 3.2,
-      "waterRetention" : 0.8,
-      "soilpH" : 6.2,
-      "organicMatter" : 0.45,
-      "soilQuality" : 6.05,
-      "leafLitter" : 0.35
+      "nitrogen" : 2.8,
+      "waterRetention" : 0.7,
+      "soilpH" : 6.5,
+      "organicMatter" : 0.35,
+      "soilQuality" : 5.19,
+      "leafLitter" : 0.25
     },
     "air" : {
-      "name" : "Valley Breeze",
-      "mass" : 920000.0,
-      "humidity" : 58.0,
-      "temperature" : 17.0,
-      "oxygenLevel" : 20.0,
-      "airQuality" : 79.75,
+      "name" : "Fresh Morning Air",
+      "mass" : 850000.0,
+      "humidity" : 65.0,
+      "temperature" : 18.0,
+      "oxygenLevel" : 21.0,
+      "airQuality" : 86.6,
       "type" : "TemperateAir",
-      "pollenLevel" : 8.5
+      "pollenLevel" : 9.0
     },
     "plants" : {
-      "name" : "Orchid",
-      "mass" : 0.6,
+      "name" : "Daisy",
+      "mass" : 0.4,
       "type" : "FloweringPlants"
     }
   },

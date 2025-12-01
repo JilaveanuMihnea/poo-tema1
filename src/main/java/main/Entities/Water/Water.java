@@ -19,6 +19,7 @@ public class Water extends Entity {
     private boolean isFrozen;
     private String type;
     private double waterQuality;
+    private int scannedAt;
 
     public Water(WaterInput waterInput) {
         super(waterInput.getName(), waterInput.getMass());

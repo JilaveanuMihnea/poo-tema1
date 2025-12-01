@@ -26,7 +26,7 @@ public final class DesertSoil extends Soil {
 
     @Override
     protected double computeBlockChance() {
-        return (100 - getWaterRetention() + salinity) / 100 * 100;
+        return Math.max(0, (100 - getWaterRetention() + salinity) / 100 * 100);
     }
     @Override
     public ObjectNode toNode() {

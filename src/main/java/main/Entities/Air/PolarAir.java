@@ -15,7 +15,7 @@ public final class PolarAir extends Air {
         this.iceCrystalConcentration = airInput.getIceCrystalConcentration();
         this.setAirQuality(computeAirQuality(0));
         setMaxScore(142);
-        setDamageChance(computeDamageChance());
+        setDamageChance(Math.max(0, computeDamageChance()));
     }
 
     @Override

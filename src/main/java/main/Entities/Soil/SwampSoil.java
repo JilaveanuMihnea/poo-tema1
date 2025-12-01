@@ -26,7 +26,7 @@ public final class SwampSoil extends Soil {
 
     @Override
     protected double computeBlockChance() {
-        return (waterLogging * 10);
+        return Math.max(0, (waterLogging * 10));
     }
     @Override
     public ObjectNode toNode() {

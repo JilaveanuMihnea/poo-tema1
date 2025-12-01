@@ -46,6 +46,21 @@ public abstract class Soil extends Entity {
     protected abstract double computeSoilQuality();
     protected abstract double computeBlockChance();
 
+    public void updateWaterRetention(double value){
+        this.waterRetention = Math.round((this.waterRetention + value) * 100.0) / 100.0;
+        updateSoilQuality();
+    }
+
+    public void updateOrganicMatter(double value){
+        this.organicMatter = Math.round((this.organicMatter + value) * 100.0) / 100.0;
+        updateSoilQuality();
+    }
+
+    private void updateSoilQuality() {
+        this.soilQuality = computeSoilQuality();
+        this.blockChance = computeBlockChance();
+    }
+
     public String getInterpretedSoilQuality() {
         if (soilQuality < 40) {
             return "poor";

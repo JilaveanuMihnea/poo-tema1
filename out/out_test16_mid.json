@@ -132,6 +132,36 @@
   } ],
   "timestamp" : 2
 }, {
+  "command" : "scanObject",
+  "message" : "The scanned object is an animal.",
+  "timestamp" : 3
+}, {
+  "command" : "scanObject",
+  "message" : "The scanned object is water.",
+  "timestamp" : 4
+}, {
+  "command" : "learnFact",
+  "message" : "The fact has been successfully saved in the database.",
+  "timestamp" : 5
+}, {
+  "command" : "learnFact",
+  "message" : "The fact has been successfully saved in the database.",
+  "timestamp" : 6
+}, {
+  "command" : "printKnowledgeBase",
+  "output" : [ {
+    "topic" : "Cat",
+    "facts" : [ "Method to fertilize soil with Cat" ]
+  }, {
+    "topic" : "WillowPond",
+    "facts" : [ "Method to increaseMoisture" ]
+  } ],
+  "timestamp" : 7
+}, {
+  "command" : "improveEnvironment",
+  "message" : "The moisture was successfully increased using WillowPond",
+  "timestamp" : 8
+}, {
   "command" : "moveRobot",
   "message" : "The robot has successfully moved to position (0, 1).",
   "timestamp" : 9
@@ -140,20 +170,32 @@
   "message" : "The robot has successfully moved to position (0, 2).",
   "timestamp" : 10
 }, {
+  "command" : "scanObject",
+  "message" : "The scanned object is a plant.",
+  "timestamp" : 11
+}, {
   "command" : "moveRobot",
   "message" : "The robot has successfully moved to position (0, 3).",
   "timestamp" : 12
+}, {
+  "command" : "improveEnvironment",
+  "message" : "ERROR: Not enough battery left. Cannot perform action",
+  "timestamp" : 13
 }, {
   "command" : "moveRobot",
   "message" : "The robot has successfully moved to position (0, 2).",
   "timestamp" : 14
 }, {
+  "command" : "improveEnvironment",
+  "message" : "ERROR: Not enough battery left. Cannot perform action",
+  "timestamp" : 15
+}, {
   "command" : "getEnergyStatus",
-  "message" : "TerraBot has 46 energy points left.",
+  "message" : "TerraBot has 4 energy points left.",
   "timestamp" : 16
 }, {
   "command" : "moveRobot",
-  "message" : "The robot has successfully moved to position (0, 3).",
+  "message" : "ERROR: Not enough battery left. Cannot perform action",
   "timestamp" : 17
 }, {
   "command" : "printMap",
@@ -161,7 +203,7 @@
     "section" : [ 0, 0 ],
     "soilQuality" : "poor",
     "airQuality" : "good",
-    "totalNrOfObjects" : 3
+    "totalNrOfObjects" : 2
   }, {
     "section" : [ 1, 0 ],
     "soilQuality" : "poor",
@@ -186,7 +228,7 @@
     "section" : [ 0, 1 ],
     "soilQuality" : "poor",
     "airQuality" : "good",
-    "totalNrOfObjects" : 2
+    "totalNrOfObjects" : 1
   }, {
     "section" : [ 1, 1 ],
     "soilQuality" : "poor",
@@ -211,7 +253,7 @@
     "section" : [ 0, 2 ],
     "soilQuality" : "poor",
     "airQuality" : "good",
-    "totalNrOfObjects" : 1
+    "totalNrOfObjects" : 0
   }, {
     "section" : [ 1, 2 ],
     "soilQuality" : "poor",
@@ -236,7 +278,7 @@
     "section" : [ 0, 3 ],
     "soilQuality" : "poor",
     "airQuality" : "good",
-    "totalNrOfObjects" : 1
+    "totalNrOfObjects" : 2
   }, {
     "section" : [ 1, 3 ],
     "soilQuality" : "poor",

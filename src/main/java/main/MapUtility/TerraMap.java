@@ -14,6 +14,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
+import java.util.LinkedList;
 import java.util.List;
 
 @Data
@@ -26,6 +27,8 @@ public final class TerraMap {
     private boolean activePolarWind = false;
     private boolean activeHikers = false;
     private boolean activeSeason = false;
+    private boolean changeFoundFlag = false;
+    private LinkedList<Animal> scannedAnimals = new LinkedList<>();
 
     public Cell getCell(int row, int col) {
         if (row < 0 || row >= rows || col < 0 || col >= cols) {
@@ -83,7 +86,7 @@ public final class TerraMap {
                 if (grid[r][c] == null) {
                     grid[r][c] = new Cell();
                 }
-                grid[r][c].setAnimal(new Animal(animal));
+                grid[r][c].setAnimal(new Animal(animal, pair, this));
             }
         }
 
@@ -115,6 +118,10 @@ public final class TerraMap {
             }
         }
 
+    }
+
+    public void addScannedAnimal(Animal animal) {
+        scannedAnimals.add(animal);
     }
 
     public ArrayNode printMap() {
@@ -157,6 +164,7 @@ public final class TerraMap {
                 Cell cell = grid[r][c];
                 if(cell.getAir().getType().equalsIgnoreCase(type)) {
                     cell.getAir().updateAirQuality(weatherCondition);
+                    changeFoundFlag = true;
                 }
             }
         }
@@ -188,13 +196,17 @@ public final class TerraMap {
     }
 
     public boolean changeWeather(CommandInput command) {
-        switch (command.getType()) {
+        switch (command.getType().strip()) {
             case "desertStorm" -> {
                 if (activeDesertStorm) {
                     return false;
                 } else {
                     activeDesertStorm = true;
                     mapWeatherUpdate("DesertAir", command.isDesertStorm());
+                    if (!changeFoundFlag) {
+                        return false;
+                    }
+                    changeFoundFlag = false;
                     return true;
                 }
             }
@@ -204,6 +216,10 @@ public final class TerraMap {
                 } else {
                     activeRainfall = true;
                     mapWeatherUpdate("TropicalAir", command.getRainfall());
+                    if (!changeFoundFlag) {
+                        return false;
+                    }
+                    changeFoundFlag = false;
                     return true;
                 }
             }
@@ -213,6 +229,10 @@ public final class TerraMap {
                 } else {
                     activePolarWind = true;
                     mapWeatherUpdate("PolarAir", command.getWindSpeed());
+                    if (!changeFoundFlag) {
+                        return false;
+                    }
+                    changeFoundFlag = false;
                     return true;
                 }
             }
@@ -222,6 +242,10 @@ public final class TerraMap {
                 } else {
                     activeHikers = true;
                     mapWeatherUpdate("MountainAir", command.getNumberOfHikers());
+                    if (!changeFoundFlag) {
+                        return false;
+                    }
+                    changeFoundFlag = false;
                     return true;
                 }
             }
@@ -231,12 +255,145 @@ public final class TerraMap {
                 } else {
                     activeSeason = true;
                     mapWeatherUpdate("TemperateAir", command.getSeason());
+                    if (!changeFoundFlag) {
+                        return false;
+                    }
+                    changeFoundFlag = false;
                     return true;
                 }
             }
             default ->  {
-                throw new IllegalStateException("Unexpected weather value: " + command.getType());
+                throw new IllegalStateException("Unexpected weather value: " + command.getType() + ".");
             }
+        }
+    }
+
+   public void interactionAirAnimal() {
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                Cell cell = grid[r][c];
+                Air air = cell.getAir();
+                Animal animal = cell.getAnimal();
+                if (animal == null || !animal.isScanned()) {
+                    continue;
+                }
+                if (air.isAirToxic()) {
+                    animal.setHungerState(Animal.HungerState.SICK);
+                } else {
+                    if (animal.getHungerState() == Animal.HungerState.SICK) {
+                        animal.setHungerState(Animal.HungerState.HUNGRY);
+                    }
+                }
+            }
+        }
+   }
+
+    public void interactionSoilPlant() {
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                Cell cell = grid[r][c];
+                Plant plant = cell.getPlant();
+                if (plant == null || !plant.isScanned()) {
+                    continue;
+                }
+                if (!plant.updatePlantAge()) {
+                    cell.setPlant(null);
+                }
+            }
+        }
+    }
+
+    public void interactionWaterAir(int currentTimestamp){
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                Cell cell = grid[r][c];
+                Water water = cell.getWater();
+                Air air = cell.getAir();
+                if (water == null || !water.isScanned()) {
+                    continue;
+                }
+                if (currentTimestamp % 2 != water.getScannedAt() % 2) {
+                    return;
+                }
+                air.updateHumidity(0.1);
+            }
+        }
+    }
+
+    public void interactionWaterSoil(int currentTimestamp) {
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                Cell cell = grid[r][c];
+                Water water = cell.getWater();
+                Soil soil = cell.getSoil();
+                if (water == null || !water.isScanned()) {
+                    continue;
+                }
+                if (currentTimestamp % 2 != water.getScannedAt() % 2) {
+                    return;
+                }
+                soil.updateWaterRetention(0.1);
+            }
+        }
+    }
+
+    public void interactionWaterPlant() {
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                Cell cell = grid[r][c];
+                Water water = cell.getWater();
+                Plant plant = cell.getPlant();
+                if (water == null || !water.isScanned()
+                    || plant == null || !plant.isScanned()) {
+                    continue;
+                }
+                if (!plant.updatePlantAge()) {
+                    cell.setPlant(null);
+                }
+            }
+        }
+    }
+
+    public void interactionPlantAir() {
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                Cell cell = grid[r][c];
+                Plant plant = cell.getPlant();
+                Air air = cell.getAir();
+                if (plant != null && plant.isScanned()) {
+                    double oxygenProduced = plant.getOxygenProduction();
+                    air.updateOxygenLevel(oxygenProduced);
+                }
+            }
+        }
+    }
+
+
+
+    public void interactionAnimalSoil() {
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                Cell cell = grid[r][c];
+                Animal animal = cell.getAnimal();
+                Soil soil = cell.getSoil();
+                if (animal == null || !animal.isScanned()) {
+                    continue;
+                }
+                if (animal.getHungerState() == Animal.HungerState.WELL_FED) {
+                    soil.updateOrganicMatter(animal.getOrganicMatterProduction());
+                    animal.setOrganicMatterProduction(0.0);
+                    animal.setHungerState(Animal.HungerState.HUNGRY);
+                }
+            }
+        }
+    }
+
+    public void interactionAnimalFood(int timestamp) {
+        for (Animal animal : scannedAnimals) {
+            if (animal.getScannedAt() % 2 != timestamp % 2) {
+                return;
+            }
+            animal.move();
         }
     }
 }

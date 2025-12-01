@@ -16,6 +16,7 @@ public abstract class Air extends Entity {
     private double oxygenLevel;
     private double airQuality;
     private double damageChance;
+    private double weatherModifier = 0;
     private boolean ongoingWeatherEvent = false;
     private String type;
 
@@ -40,15 +41,32 @@ public abstract class Air extends Entity {
     protected abstract double computeAirQuality(double weatherModifier);
     protected abstract double computeWeatherModifier(Object weatherCondition);
 
+    public void updateHumidity(double value) {
+        this.humidity += value;
+        this.humidity = Math.round(this.humidity * 100.0) / 100.0;
+        updateAirQuality();
+    }
+
+    public void updateOxygenLevel(double oxygenProduction) {
+        this.oxygenLevel += oxygenProduction;
+        this.oxygenLevel = Math.round(oxygenLevel * 100.0) / 100.0;
+        updateAirQuality();
+    }
+
+    private void updateAirQuality() {
+        this.airQuality = computeAirQuality(this.weatherModifier);
+        this.damageChance = Math.max(0, computeDamageChance());
+    }
+
     public void updateAirQuality(Object weatherCondition) {
-        double weatherModifier = computeWeatherModifier(weatherCondition);
+        this.weatherModifier = computeWeatherModifier(weatherCondition);
         if (weatherModifier != 0) {
             this.ongoingWeatherEvent = true;
         } else {
             this.ongoingWeatherEvent = false;
         }
-        this.airQuality = computeAirQuality(weatherModifier);
-        this.damageChance = computeDamageChance();
+        this.airQuality = computeAirQuality(this.weatherModifier);
+        this.damageChance = Math.max(0, computeDamageChance());
     }
 
     protected double airQualityNormalize(double quality) {
@@ -66,7 +84,11 @@ public abstract class Air extends Entity {
         }
     }
 
+    public boolean isAirToxic() {
+        return damageChance > (0.8 * maxScore);
+    }
+
     protected double computeDamageChance() {
-        return Math.round(100 * (1 - airQuality / maxScore) * 100.0) / 100.0;
+        return Math.max(0, Math.round(100 * (1 - airQuality / maxScore) * 100.0) / 100.0);
     }
 }

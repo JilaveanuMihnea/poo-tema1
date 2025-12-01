@@ -16,13 +16,35 @@ public class Plant extends Entity {
     enum PlantAge {
         YOUNG,
         MATURE,
-        OLD
-    }
+        OLD,
+        DEAD;
 
+        private double growthLevel = 0.0;
+
+        public PlantAge updateGrowth() {
+            PlantAge[] values = PlantAge.values();
+            growthLevel += 0.2;
+            growthLevel = Math.round(growthLevel * 100.0) / 100.0;
+            if (growthLevel >= 1.0) {
+                growthLevel = 0.0;
+                return values[this.ordinal() + 1];
+            }
+            return this;
+        }
+
+        public double getGrowthLevel() {
+            return growthLevel;
+        }
+
+        public void setGrowthLevel(double growthLevel){
+            this.growthLevel = growthLevel;
+        }
+    }
 
     public Plant(PlantInput plantInput) {
         super(plantInput.getName(), plantInput.getMass());
         plantAge = PlantAge.YOUNG;
+        plantAge.setGrowthLevel(0.0);
         switch(plantInput.getType()) {
             case "FloweringPlants":
                 this.plantType = PlantTypes.FLOWERING;
@@ -66,10 +88,24 @@ public class Plant extends Entity {
         return plantType.getTangleChance();
     }
 
+    public boolean updatePlantAge() {
+        this.plantAge = this.plantAge.updateGrowth();
+        if (this.plantAge == PlantAge.DEAD) {
+            this.setScanned(false);
+            return false;
+        }
+        return true;
+    }
+
     @Override
     public ObjectNode toNode() {
         ObjectNode plantNode = super.toNode();
         plantNode.put("type", plantType.getTypeName());
         return plantNode;
     }
+
+    public String getTypeName () {
+        return plantType.getTypeName();
+    }
+
 }

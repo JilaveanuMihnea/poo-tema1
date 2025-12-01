@@ -15,7 +15,7 @@ public final class MountainAir extends Air {
         this.altitude = (airInput.getAltitude());
         this.setAirQuality(computeAirQuality(0));
         setMaxScore(78);
-        setDamageChance(computeDamageChance());
+        setDamageChance(Math.max(0, computeDamageChance()));
     }
 
     @Override

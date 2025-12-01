@@ -15,7 +15,7 @@ public final class TemperateAir extends Air {
         this.pollenLevel = airInput.getPollenLevel();
         this.setAirQuality(computeAirQuality(0));
         setMaxScore(84);
-        setDamageChance(computeDamageChance());
+        setDamageChance(Math.max(0, computeDamageChance()));
     }
 
     @Override

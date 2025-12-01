@@ -12,10 +12,10 @@ public final class TropicalAir extends Air {
 
     public TropicalAir(final AirInput airInput) {
         super(airInput);
-        this.co2Level = airInput.getCo2Level();
+        this.co2Level = Math.round(airInput.getCo2Level() * 100.0) / 100.0;
         this.setAirQuality(computeAirQuality(0));
         setMaxScore(82);
-        setDamageChance(computeDamageChance());
+        setDamageChance(Math.max(0, computeDamageChance()));
     }
 
     @Override
@@ -35,6 +35,6 @@ public final class TropicalAir extends Air {
 
     @Override
     protected double computeWeatherModifier(Object weatherCondition) {
-        return ((double) weatherCondition * 0.3);
+        return (Double.parseDouble(weatherCondition.toString()) * 0.3);
     }
 }

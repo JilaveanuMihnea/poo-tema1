@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 public abstract class Entity {
     private String name;
     private double mass;
+    private boolean scanned = false;
 
     public Entity(String name, double mass) {
         this.name = name;
