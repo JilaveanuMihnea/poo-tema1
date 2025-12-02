@@ -4,17 +4,19 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.AirInput;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import main.Constants;
 
 @Data
 @NoArgsConstructor
-public final class MountainAir extends Air {
+public final class
+MountainAir extends Air {
     private double altitude;
 
     public MountainAir(final AirInput airInput) {
         super(airInput);
         this.altitude = (airInput.getAltitude());
         this.setAirQuality(computeAirQuality(0));
-        setMaxScore(78);
+        setMaxScore(Constants.MOUNTAINAIR_MAX_SCORE);
         setDamageChance(Math.max(0, computeDamageChance()));
     }
 
@@ -27,14 +29,17 @@ public final class MountainAir extends Air {
     }
 
     @Override
-    protected double computeAirQuality(double weatherModifier) {
-        double quality = getOxygenLevel() * 2 - altitude / 1000
-                         + getHumidity() * 0.6 + weatherModifier;
+    protected double computeAirQuality(final double weatherMod) {
+        double quality = getOxygenLevel() * Constants.MOUNTAINAIR_OXYGENLEVEL_MULT
+                         - altitude / Constants.MOUNTAINAIR_ALTITUDE_DIVIDER
+                         + getHumidity() * Constants.MOUNTAINAIR_HUMIDITY_MULT
+                         + weatherMod;
         return airQualityNormalize(quality);
     }
 
     @Override
-    protected double computeWeatherModifier(Object weatherCondition) {
-        return -(Double.parseDouble(weatherCondition.toString()) * 0.1);
+    protected double computeWeatherModifier(final Object weatherCondition) {
+        return Double.parseDouble(weatherCondition.toString())
+                * Constants.MOUNTAINAIR_WEATHER_MODIFIER_MULT;
     }
 }

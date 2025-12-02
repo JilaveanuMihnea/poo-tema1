@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.AirInput;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import main.Constants;
 
 @Data
 @NoArgsConstructor
@@ -14,7 +15,7 @@ public final class DesertAir extends Air {
         super(airInput);
         this.dustParticles = airInput.getDustParticles();
         this.setAirQuality(computeAirQuality(0));
-        setMaxScore(65);
+        setMaxScore(Constants.DESERTAIR_MAX_SCORE);
         setDamageChance(Math.max(0, computeDamageChance()));
     }
 
@@ -29,17 +30,19 @@ public final class DesertAir extends Air {
     }
 
     @Override
-    protected double computeAirQuality(double weatherModifier) {
-        double quality = getOxygenLevel() * 2 - getTemperature() * 0.3
-                         - dustParticles * 0.2 + weatherModifier;
+    protected double computeAirQuality(final double weatherMod) {
+        double quality = getOxygenLevel() * Constants.DESERTAIR_OXYGENLEVEL_MULT
+                         - getTemperature() * Constants.DESERTAIR_TEMPERATURE_MULT
+                         - dustParticles * Constants.DESERTAIR_DUSTPARTICLES_MULT
+                         + weatherMod;
         return airQualityNormalize(quality);
     }
 
     @Override
-    protected double computeWeatherModifier(Object weatherCondition) {
+    protected double computeWeatherModifier(final Object weatherCondition) {
         double modifier = 0;
         if ((boolean) weatherCondition) { // Desert Storm active
-            modifier -= 30;
+            modifier += Constants.DESERTSTORM_MODIFIER;
         }
         return modifier;
     }

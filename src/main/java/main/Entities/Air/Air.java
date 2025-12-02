@@ -5,6 +5,7 @@ import fileio.AirInput;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import main.Constants;
 import main.Entities.Entity;
 
 @Data
@@ -28,6 +29,10 @@ public abstract class Air extends Entity {
         this.type = airInput.getType();
     }
 
+    /**
+     * Convert Air object to JSON node
+     * @return ObjectNode representing the Air object
+     */
     @Override
     public ObjectNode toNode() {
         ObjectNode airNode = super.toNode();
@@ -38,18 +43,28 @@ public abstract class Air extends Entity {
         return airNode;
     }
 
-    protected abstract double computeAirQuality(double weatherModifier);
+    protected abstract double computeAirQuality(double weatherMod);
     protected abstract double computeWeatherModifier(Object weatherCondition);
 
-    public void updateHumidity(double value) {
+    /**
+     * Add value to current humidity and update air quality
+     * @param value value to add to humidity
+     */
+    public void updateHumidity(final double value) {
         this.humidity += value;
-        this.humidity = Math.round(this.humidity * 100.0) / 100.0;
+        this.humidity = Math.round(this.humidity * Constants.ROUNDING_FACTOR)
+                                   / Constants.ROUNDING_FACTOR;
         updateAirQuality();
     }
 
-    public void updateOxygenLevel(double oxygenProduction) {
+    /**
+     * Add oxygen production to current oxygen level and update air quality
+     * @param oxygenProduction oxygen level to add
+     */
+    public void updateOxygenLevel(final double oxygenProduction) {
         this.oxygenLevel += oxygenProduction;
-        this.oxygenLevel = Math.round(oxygenLevel * 100.0) / 100.0;
+        this.oxygenLevel = Math.round(oxygenLevel * Constants.ROUNDING_FACTOR)
+                                      / Constants.ROUNDING_FACTOR;
         updateAirQuality();
     }
 
@@ -58,7 +73,11 @@ public abstract class Air extends Entity {
         this.damageChance = Math.max(0, computeDamageChance());
     }
 
-    public void updateAirQuality(Object weatherCondition) {
+    /**
+     * Update air quality based on weather condition
+     * @param weatherCondition current weather condition
+     */
+    public void updateAirQuality(final Object weatherCondition) {
         this.weatherModifier = computeWeatherModifier(weatherCondition);
         if (weatherModifier != 0) {
             this.ongoingWeatherEvent = true;
@@ -69,26 +88,46 @@ public abstract class Air extends Entity {
         this.damageChance = Math.max(0, computeDamageChance());
     }
 
-    protected double airQualityNormalize(double quality) {
-        quality = Math.max(0, Math.min(quality, 100));
-        return Math.round(quality * 100.0) / 100.0;
+    /**
+     * Normalize and round air quality to be within 0-100 range
+     * @param quality raw air quality score
+     * @return normalized air quality score
+     */
+    protected double airQualityNormalize(final double quality) {
+        double qualityClamped = Math.max(0, Math.min(quality, Constants.CLAMP_MAX));
+        return Math.round(qualityClamped * Constants.ROUNDING_FACTOR)
+                / Constants.ROUNDING_FACTOR;
     }
 
+    /**
+     * Interpret air quality score into descriptive category
+     * @return String representing air quality category
+     */
     public String getInterpretedAirQuality() {
-        if (airQuality < 40) {
+        if (airQuality < Constants.AIR_POOR_QUALITY_THRESHOLD) {
             return "poor";
-        } else if (airQuality < 70) {
+        } else if (airQuality < Constants.AIR_MODERATE_QUALITY_THRESHOLD) {
             return "moderate";
         } else {
             return "good";
         }
     }
 
+    /**
+     * Check if air is toxic based on damage chance
+     * @return true if air is toxic, false otherwise
+     */
     public boolean isAirToxic() {
-        return damageChance > (0.8 * maxScore);
+        return damageChance > (Constants.AIR_TOXIC_THRESHOLD_MULT * maxScore);
     }
 
+    /**
+     * Compute damage chance based on air quality
+     * @return damage chance value
+     */
     protected double computeDamageChance() {
-        return Math.max(0, Math.round(100 * (1 - airQuality / maxScore) * 100.0) / 100.0);
+        return Math.max(0, Math.round(Constants.AIR_DMG_BASE * (1 - airQuality / maxScore)
+                        * Constants.ROUNDING_FACTOR)
+                        / Constants.ROUNDING_FACTOR);
     }
 }

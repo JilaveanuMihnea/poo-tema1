@@ -4,13 +4,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import fileio.*;
+import fileio.InputLoader;
+import fileio.SimulationInput;
+import fileio.CommandInput;
+import main.Constants;
 import main.MapUtility.TerraMap;
 import main.TerraBot.TerraBot;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.AbstractMap;
 
-import java.util.*;
-
-public class Simulator {
+public final class Simulator {
     private boolean isStarted = false;
     private TerraMap terraMap;
     private TerraBot terraBot;
@@ -19,7 +25,13 @@ public class Simulator {
             new PriorityQueue<>(Comparator.comparingInt(Map.Entry::getKey));
 
 
-    public void simulate(InputLoader inputLoader, ArrayNode output, ObjectMapper MAPPER) {
+    /**
+     * Runs the simulation based on the input commands and simulations.
+     * Adds the results to the output array.
+     * @param inputLoader Simulation parameters and commands
+     * @param output Output array to store results
+     */
+    public void simulate(final InputLoader inputLoader, final ArrayNode output) {
         int lastTimestamp = 0;
         int commandIndex = 0;
         List<SimulationInput> simulations = inputLoader.getSimulations();
@@ -30,20 +42,19 @@ public class Simulator {
             lastTimestamp = 0;
             terraMap = new TerraMap();
             terraMap.mapBuilder(simulation);
+
             terraBot = new TerraBot(simulation.getEnergyPoints(), terraMap);
-
-
-            for (int currentCommandIndex = commandIndex; currentCommandIndex < commands.size(); currentCommandIndex++) {
+            for (int currentCommandIndex = commandIndex; currentCommandIndex < commands.size();
+                 currentCommandIndex++) {
                 CommandInput command = commands.get(currentCommandIndex);
                 if (command.getTimestamp() > lastTimestamp + 1) {
                     updateSequence(lastTimestamp, command.getTimestamp() - lastTimestamp - 1);
                 }
 
                 updateSimulation(command.getTimestamp());
-
                 commandHandler(command, output);
-
                 lastTimestamp = command.getTimestamp();
+
                 if (nextSimFlag) {
                     nextSimFlag = false;
                     commandIndex = currentCommandIndex + 1;
@@ -52,14 +63,13 @@ public class Simulator {
             }
         }
 
-        for (int currentCommandIndex = commandIndex; currentCommandIndex < commands.size(); currentCommandIndex++) {
+        for (int currentCommandIndex = commandIndex; currentCommandIndex < commands.size();
+             currentCommandIndex++) {
             commandHandler(commands.get(currentCommandIndex), output);
         }
-
-
     }
 
-    private void commandHandler(CommandInput command, ArrayNode output) {
+    private void commandHandler(final CommandInput command, final ArrayNode output) {
         switch (command.getCommand()) {
             case "startSimulation":
                 output.add(startSimulation(command));
@@ -97,48 +107,42 @@ public class Simulator {
             case "improveEnvironment":
                 output.add(improveEnvironment(command));
                 break;
+            default:
+                break;
         }
     }
 
-    private void updateSequence(int currentTimestamp, int repeats) {
-        for (int i = 0; i < repeats; i++, currentTimestamp++) {
-            if(!weatherQueue.isEmpty()){
-                if(currentTimestamp == weatherQueue.peek().getKey()){
+    private void updateSequence(final int currentTimestamp, final int repeats) {
+        int timestamp = currentTimestamp;
+        for (int i = 0; i < repeats; i++, timestamp++) {
+            if (!weatherQueue.isEmpty()) {
+                if (timestamp == weatherQueue.peek().getKey()) {
                     String weatherType = weatherQueue.peek().getValue();
                     terraMap.resetWeather(weatherType);
                     weatherQueue.poll();
                 }
             }
 
-            // order: air. soil, water, plant, animal
             terraMap.interactionSoilPlant();
-
-            terraMap.interactionWaterAir(currentTimestamp);
-            terraMap.interactionWaterSoil(currentTimestamp);
+            terraMap.interactionWaterAir(timestamp);
+            terraMap.interactionWaterSoil(timestamp);
             terraMap.interactionWaterPlant();
-
             terraMap.interactionPlantAir();
-
             terraMap.interactionAnimalSoil();
-            terraMap.interactionAnimalFood(currentTimestamp);
-
+            terraMap.interactionAnimalFood(timestamp);
         }
-
     }
 
-    private void updateSimulation(int currentTimestamp) {
-
+    private void updateSimulation(final int currentTimestamp) {
         if (isStarted && terraBot.isCharging()) {
             if (currentTimestamp >= terraBot.getBattery().getRechargingStopTime()) {
                 terraBot.getBattery().setCharging(false);
             }
         }
-
         updateSequence(currentTimestamp, 1);
-
     }
 
-    private ObjectNode startSimulation(CommandInput command) {
+    private ObjectNode startSimulation(final CommandInput command) {
         ObjectNode node = new ObjectMapper().createObjectNode();
         node.put("command", "startSimulation");
         if (!isStarted) {
@@ -151,7 +155,7 @@ public class Simulator {
         return node;
     }
 
-    private ObjectNode endSimulation(CommandInput command) {
+    private ObjectNode endSimulation(final CommandInput command) {
         ObjectNode node = new ObjectMapper().createObjectNode();
         node.put("command", "endSimulation");
         if (isStarted) {
@@ -165,7 +169,7 @@ public class Simulator {
         return node;
     }
 
-    private ObjectNode printEnvConditions(CommandInput command) {
+    private ObjectNode printEnvConditions(final CommandInput command) {
         ObjectNode node = new ObjectMapper().createObjectNode();
         node.put("command", "printEnvConditions");
         if (!isStarted) {
@@ -173,14 +177,15 @@ public class Simulator {
         } else if (terraBot.isCharging()) {
             node.put("message", "ERROR: Robot still charging. Cannot perform action");
         } else {
-            node.put("output", terraMap.getCell(terraBot.getPosition().getX(), terraBot.getPosition().getY()).toNodeEnvConditions());
+            node.put("output", terraMap.getCell(terraBot.getPosition().getX(),
+                     terraBot.getPosition().getY()).toNodeEnvConditions());
         }
 
         node.put("timestamp", command.getTimestamp());
         return node;
     }
 
-    private ObjectNode printMap(CommandInput command) {
+    private ObjectNode printMap(final CommandInput command) {
         ObjectNode node = new ObjectMapper().createObjectNode();
         node.put("command", "printMap");
         if (!isStarted) {
@@ -192,7 +197,7 @@ public class Simulator {
         return node;
     }
 
-    private ObjectNode moveRobot(CommandInput command) {
+    private ObjectNode moveRobot(final CommandInput command) {
         ObjectNode node = new ObjectMapper().createObjectNode();
         node.put("command", "moveRobot");
         if (!isStarted) {
@@ -202,9 +207,9 @@ public class Simulator {
         } else {
             terraBot.move();
             if (terraBot.isHasEnergyForMove()) {
-                node.put("message", "The robot has successfully moved to position (" +
-                        terraBot.getPosition().getX() + ", " +
-                        terraBot.getPosition().getY() + ").");
+                node.put("message", "The robot has successfully moved to position ("
+                         + terraBot.getPosition().getX() + ", "
+                         + terraBot.getPosition().getY() + ").");
             } else {
                 node.put("message", "ERROR: Not enough battery left. Cannot perform action");
             }
@@ -213,7 +218,7 @@ public class Simulator {
         return node;
     }
 
-    private ObjectNode getEnergyStatus(CommandInput command) {
+    private ObjectNode getEnergyStatus(final CommandInput command) {
         ObjectNode node = new ObjectMapper().createObjectNode();
         node.put("command", "getEnergyStatus");
         if (!isStarted) {
@@ -221,13 +226,14 @@ public class Simulator {
         } else if (terraBot.isCharging()) {
             node.put("message", "ERROR: Robot still charging. Cannot perform action");
         } else {
-            node.put("message", "TerraBot has " + terraBot.getBattery().getCurrentCharge() + " energy points left.");
+            node.put("message", "TerraBot has " + terraBot.getBattery().getCurrentCharge()
+                     + " energy points left.");
         }
         node.put("timestamp", command.getTimestamp());
         return node;
     }
 
-    private ObjectNode rechargeBattery(CommandInput command) {
+    private ObjectNode rechargeBattery(final CommandInput command) {
         ObjectNode node = new ObjectMapper().createObjectNode();
         node.put("command", "rechargeBattery");
         if (!isStarted) {
@@ -242,7 +248,7 @@ public class Simulator {
         return node;
     }
 
-    private ObjectNode changeWeatherConditions(CommandInput command) {
+    private ObjectNode changeWeatherConditions(final CommandInput command) {
         ObjectNode node = new ObjectMapper().createObjectNode();
         node.put("command", "changeWeatherConditions");
         if (!isStarted) {
@@ -255,21 +261,23 @@ public class Simulator {
                         command.getType()
                 ));
             } else {
-                node.put("message", "ERROR: The weather change does not affect the environment. Cannot perform action");
+                node.put("message",
+                        "ERROR: The weather change does not affect the environment."
+                            + " Cannot perform action");
             }
         }
         node.put("timestamp", command.getTimestamp());
         return node;
     }
 
-    private ObjectNode scanObject(CommandInput command) {
+    private ObjectNode scanObject(final CommandInput command) {
         ObjectNode node = new ObjectMapper().createObjectNode();
         node.put("command", "scanObject");
         if (!isStarted) {
             node.put("message", "ERROR: Simulation not started. Cannot perform action");
         } else if (terraBot.isCharging()) {
             node.put("message", "ERROR: Robot still charging. Cannot perform action");
-        } else if  (!terraBot.canPerformEnergyConsumingAction(7)) {
+        } else if  (!terraBot.canPerformEnergyConsumingAction(Constants.TERRABOT_SCAN_ENERGY)) {
             node.put("message", "ERROR: Not enough energy to perform action");
         } else {
             String scannedObject = terraBot.scanObject(command.getColor(),
@@ -284,7 +292,7 @@ public class Simulator {
         return node;
     }
 
-    private ObjectNode learnFact(CommandInput command) {
+    private ObjectNode learnFact(final CommandInput command) {
         ObjectNode node = new ObjectMapper().createObjectNode();
         node.put("command", "learnFact");
         if (!isStarted) {
@@ -304,7 +312,7 @@ public class Simulator {
         return node;
     }
 
-    private ObjectNode printKnowledgeBase(CommandInput command) {
+    private ObjectNode printKnowledgeBase(final CommandInput command) {
         ObjectNode node = new ObjectMapper().createObjectNode();
         node.put("command", "printKnowledgeBase");
         if (!isStarted) {
@@ -316,20 +324,19 @@ public class Simulator {
         return node;
     }
 
-    private ObjectNode improveEnvironment(CommandInput command) {
+    private ObjectNode improveEnvironment(final CommandInput command) {
         ObjectNode node = new ObjectMapper().createObjectNode();
         node.put("command", "improveEnvironment");
         if (!isStarted) {
             node.put("message", "ERROR: Simulation not started. Cannot perform action");
         } else if (terraBot.isCharging()) {
             node.put("message", "ERROR: Robot still charging. Cannot perform action");
-        } else if  (!terraBot.canPerformEnergyConsumingAction(10)) {
+        } else if  (!terraBot.canPerformEnergyConsumingAction(Constants.TERRABOT_IMPROVE_ENERGY)) {
             node.put("message", "ERROR: Not enough battery left. Cannot perform action");
         } else {
             node.put("message", terraBot.improveEnvironment(
                     command.getImprovementType(),
-                    command.getName(),
-                    command.getType()
+                    command.getName()
             ));
         }
         node.put("timestamp", command.getTimestamp());

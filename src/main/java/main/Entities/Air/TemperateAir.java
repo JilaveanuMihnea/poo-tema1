@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.AirInput;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import main.Constants;
 
 @Data
 @NoArgsConstructor
@@ -14,7 +15,7 @@ public final class TemperateAir extends Air {
         super(airInput);
         this.pollenLevel = airInput.getPollenLevel();
         this.setAirQuality(computeAirQuality(0));
-        setMaxScore(84);
+        setMaxScore(Constants.TEMPERATEAIR_MAX_SCORE);
         setDamageChance(Math.max(0, computeDamageChance()));
     }
 
@@ -27,14 +28,16 @@ public final class TemperateAir extends Air {
     }
 
     @Override
-    protected double computeAirQuality(double weatherModifier) {
-        double quality = getOxygenLevel() * 2 + getHumidity() * 0.7
-                         - pollenLevel * 0.1 + weatherModifier;
+    protected double computeAirQuality(final double weatherMod) {
+        double quality = getOxygenLevel() * Constants.TEMPERATEAIR_OXYGENLEVEL_MULT
+                         + getHumidity() * Constants.TEMPERATEAIR_HUMIDITY_MULT
+                         - pollenLevel * Constants.TEMPERATEAIR_POLLENLEVEL_MULT
+                         + weatherMod;
         return airQualityNormalize(quality);
     }
 
     @Override
-    protected double computeWeatherModifier(Object weatherCondition) {
-        return -(((String) weatherCondition).equals("Spring") ? 15 : 0);
+    protected double computeWeatherModifier(final Object weatherCondition) {
+        return (((String) weatherCondition).equals("Spring") ? Constants.SPRING_MODIFIER : 0);
     }
 }

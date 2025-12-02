@@ -7,16 +7,21 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Battery {
+public final class Battery {
     private int currentCharge;
     private int rechargingStopTime = 0;
     private boolean isCharging = false;
 
-    public Battery(int initialCharge) {
+    public Battery(final int initialCharge) {
         this.currentCharge = initialCharge;
     }
 
-    public boolean consumeCharge(int amount) {
+    /**
+     * Consumes the specified amount of charge from the battery.
+     * @param amount The amount of charge to consume.
+     * @return True if the charge was successfully consumed, false otherwise (not enough battery).
+     */
+    public boolean consumeCharge(final int amount) {
         if (currentCharge >= amount) {
             currentCharge -= amount;
             return true;

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.AirInput;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import main.Constants;
 
 @Data
 @NoArgsConstructor
@@ -12,9 +13,10 @@ public final class TropicalAir extends Air {
 
     public TropicalAir(final AirInput airInput) {
         super(airInput);
-        this.co2Level = Math.round(airInput.getCo2Level() * 100.0) / 100.0;
+        this.co2Level = Math.round(airInput.getCo2Level() * Constants.ROUNDING_FACTOR)
+                        / Constants.ROUNDING_FACTOR;
         this.setAirQuality(computeAirQuality(0));
-        setMaxScore(82);
+        setMaxScore(Constants.TROPICALAIR_MAX_SCORE);
         setDamageChance(Math.max(0, computeDamageChance()));
     }
 
@@ -27,14 +29,17 @@ public final class TropicalAir extends Air {
     }
 
     @Override
-    protected double computeAirQuality(double weatherModifier) {
-        double quality = getOxygenLevel() * 2 + getHumidity() * 0.5
-                         - co2Level * 0.01 + weatherModifier;
+    protected double computeAirQuality(final double weatherMod) {
+        double quality = getOxygenLevel() * Constants.TROPICALAIR_OXYGENLEVEL_MULT
+                         + getHumidity() * Constants.TROPICALAIR_HUMIDITY_MULT
+                         - co2Level * Constants.TROPICALAIR_CO2LEVEL_MULT
+                         + weatherMod;
         return airQualityNormalize(quality);
     }
 
     @Override
-    protected double computeWeatherModifier(Object weatherCondition) {
-        return (Double.parseDouble(weatherCondition.toString()) * 0.3);
+    protected double computeWeatherModifier(final Object weatherCondition) {
+        return (Double.parseDouble(weatherCondition.toString())
+                * Constants.TROPICALAIR_WEATHER_MODIFIER_MULT);
     }
 }

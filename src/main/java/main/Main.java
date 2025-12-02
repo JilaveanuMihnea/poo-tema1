@@ -3,7 +3,6 @@ package main;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.InputLoader;
 import main.Simulator.Simulator;
 
@@ -50,7 +49,7 @@ public final class Main {
          *
          */
         Simulator simulator = new Simulator();
-        simulator.simulate(inputLoader, output, MAPPER);
+        simulator.simulate(inputLoader, output);
 
 //        ObjectNode test = MAPPER.createObjectNode();
 //        test.put("test", "test");

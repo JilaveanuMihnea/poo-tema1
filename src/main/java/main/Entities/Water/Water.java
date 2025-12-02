@@ -4,13 +4,14 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.WaterInput;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import main.Constants;
 import main.Entities.Entity;
 
 import static java.lang.Math.abs;
 
 @Data
 @NoArgsConstructor
-public class Water extends Entity {
+public final class Water extends Entity {
     private double salinity;
     private double pH;
     private double purity;
@@ -21,7 +22,7 @@ public class Water extends Entity {
     private double waterQuality;
     private int scannedAt;
 
-    public Water(WaterInput waterInput) {
+    public Water(final WaterInput waterInput) {
         super(waterInput.getName(), waterInput.getMass());
         this.salinity = waterInput.getSalinity();
         this.pH = waterInput.getPH();
@@ -35,26 +36,23 @@ public class Water extends Entity {
 
     private double computeWaterQuality() {
         double quality;
-        quality = 0.3 * (purity / 100) // purity score
-                + 0.2 * (1 - abs(pH - 7.5) / 7.5) // ph score
-                + 0.15 * (1 - salinity / 350) // salinity score
-                + 0.1 * (1 - turbidity / 100) // turbidity score
-                + 0.15 * (1 - contaminantIndex / 100) // contaminant index score
-                + 0.2 * (isFrozen ? 0 : 1); // frozen score
-        quality *= 100;
+        quality = Constants.WATER_Q_PURITY_MULT * (purity / Constants.WATER_Q_PURITY_DIVIDER)
+                + Constants.WATER_Q_PH_MULT * (1 - abs(pH - Constants.WATER_Q_PH_FACTOR)
+                / Constants.WATER_Q_PH_FACTOR)
+                + Constants.WATER_Q_SALINITY_MULT * (1 - salinity
+                / Constants.WATER_Q_SALINITY_DIVIDER)
+                + Constants.WATER_Q_TURBIDITY_MULT * (1 - turbidity
+                / Constants.WATER_Q_TURBIDITY_DIVIDER)
+                + Constants.WATER_Q_CONTAMINANT_MULT * (1 - contaminantIndex
+                / Constants.WATER_Q_CONTAMINANT_DIVIDER)
+                + Constants.WATER_Q_FROZEN_MULT * (isFrozen ? 0 : 1); // frozen score
+        quality *= Constants.WATER_Q_TOTAL_MULTIPLIER;
         return quality;
     }
     @Override
     public ObjectNode toNode() {
         ObjectNode waterNode = super.toNode();
         waterNode.put("type", type);
-//        waterNode.put("salinity", salinity);
-//        waterNode.put("pH", pH);
-//        waterNode.put("purity", purity);
-//        waterNode.put("turbidity", turbidity);
-//        waterNode.put("contaminantIndex", contaminantIndex);
-//        waterNode.put("isFrozen", isFrozen);
-//        waterNode.put("waterQuality", waterQuality);
         return waterNode;
     }
 }

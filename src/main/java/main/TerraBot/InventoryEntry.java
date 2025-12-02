@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class InventoryEntry {
+public final class InventoryEntry {
     private List<String> facts;
     private String comoponentName;
     private double mass;
@@ -22,25 +22,37 @@ public class InventoryEntry {
     private boolean humidityMethod = false;
     private boolean moistureMethod = false;
 
-    public InventoryEntry(String comoponentName, double mass, String componentType) {
+    public InventoryEntry(final String comoponentName, final double mass,
+                          final String componentType) {
         this.comoponentName = comoponentName;
         this.mass = mass;
         this.componentType = componentType;
         facts = new ArrayList<>();
     }
 
-    public void setFact (String subject) {
+    /**
+     * Sets a fact and updates method flags based on the fact's content.
+     * @param subject The fact to be added.
+     */
+    public void setFact(final String subject) {
         facts.add(subject);
-        //get third word of string method
+        // Third word in a "method" fact indicates the type of method
         String relevantWord = subject.split(" ")[2];
         switch (relevantWord) {
             case "plant" -> this.plantMethod = true;
             case "fertilize" -> this.fertilizeMethod = true;
             case "increase" -> this.humidityMethod = true; //humidity
             case "increaseMoisture" -> this.moistureMethod = true;
+            default -> {
+                return;
+            }
         }
     }
 
+    /**
+     * Converts the list of facts into a JSON ArrayNode.
+     * @return An ArrayNode containing all facts.
+     */
     public ArrayNode getFactsNode() {
         ArrayNode factsNode = new ObjectMapper().createArrayNode();
         for (String fact : facts) {
