@@ -1,15 +1,14 @@
 package main.MapUtility;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import main.Entities.Soil.*;
-import main.Entities.Air.*;
-import main.Entities.Water.*;
-import main.Entities.Plants.*;
-import main.Entities.Animals.*;
+import main.Entities.Soil.Soil;
+import main.Entities.Air.Air;
+import main.Entities.Water.Water;
+import main.Entities.Plants.Plant;
+import main.Entities.Animals.Animal;
 
 @Data
 @NoArgsConstructor
@@ -29,6 +28,11 @@ public final class Cell {
         this.animal = animal;
     }
 
+    /**
+     * Converts the cell's environmental conditions to a JSON ObjectNode
+     *
+     * @return ObjectNode representing the cell's environmental conditions
+     */
     public ObjectNode toNodeEnvConditions() {
         ObjectNode cellNode = new ObjectMapper().createObjectNode();
         if (soil != null) {
@@ -49,6 +53,11 @@ public final class Cell {
         return cellNode;
     }
 
+    /**
+     * Computes the energy required for the robot to move on this cell
+     *
+     * @return the computed energy consumption as an integer
+     */
     public int computeConsumption() {
         int count = 2;
         double sum = soil.getBlockChance();
@@ -65,5 +74,4 @@ public final class Cell {
 
         return (int) Math.round(sum);
     }
-
 }

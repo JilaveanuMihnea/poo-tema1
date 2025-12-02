@@ -1,5 +1,7 @@
 package main.Entities.Animals;
 
+import main.Constants;
+
 public enum AnimalTypes {
     HERBIVORE(85, "Herbivores"),
     CARNIVORE(30, "Carnivores"),
@@ -10,8 +12,9 @@ public enum AnimalTypes {
     private double attackChance;
     private String typeName;
 
-    AnimalTypes(int attackPossibility, String typeName) {
-        this.attackChance = (100 - attackPossibility) / 10.0;
+    AnimalTypes(final int attackPossibility, final String typeName) {
+        this.attackChance = (Constants.ANIMAL_ATTACK_BASE - attackPossibility)
+                            / Constants.ANIMAL_ATTACK_DIVIDER;
         this.typeName = typeName;
     }
 

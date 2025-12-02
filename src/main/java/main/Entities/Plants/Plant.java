@@ -1,15 +1,15 @@
 package main.Entities.Plants;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.PlantInput;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import main.Constants;
 import main.Entities.Entity;
 
 @Data
 @NoArgsConstructor
-public class Plant extends Entity {
+public final class Plant extends Entity {
     private PlantTypes plantType;
     private PlantAge plantAge;
 
@@ -23,8 +23,9 @@ public class Plant extends Entity {
 
         public PlantAge updateGrowth() {
             PlantAge[] values = PlantAge.values();
-            growthLevel += 0.2;
-            growthLevel = Math.round(growthLevel * 100.0) / 100.0;
+            growthLevel += Constants.PLANT_GROWTH_RATE;
+            growthLevel = Math.round(growthLevel * Constants.ROUNDING_FACTOR)
+                          / Constants.ROUNDING_FACTOR;
             if (growthLevel >= 1.0) {
                 growthLevel = 0.0;
                 return values[this.ordinal() + 1];
@@ -32,20 +33,16 @@ public class Plant extends Entity {
             return this;
         }
 
-        public double getGrowthLevel() {
-            return growthLevel;
-        }
-
-        public void setGrowthLevel(double growthLevel){
+        public void setGrowthLevel(final double growthLevel) {
             this.growthLevel = growthLevel;
         }
     }
 
-    public Plant(PlantInput plantInput) {
+    public Plant(final PlantInput plantInput) {
         super(plantInput.getName(), plantInput.getMass());
         plantAge = PlantAge.YOUNG;
         plantAge.setGrowthLevel(0.0);
-        switch(plantInput.getType()) {
+        switch (plantInput.getType()) {
             case "FloweringPlants":
                 this.plantType = PlantTypes.FLOWERING;
                 break;
@@ -66,28 +63,32 @@ public class Plant extends Entity {
         }
     }
 
+    /**
+     * Calculates the oxygen production of the plant based on its type and age.
+     * @return the oxygen production value
+     */
     public double getOxygenProduction() {
-        double ageModifier;
-        switch(plantAge) {
-            case YOUNG:
-                ageModifier = 0.2;
-                break;
-            case MATURE:
-                ageModifier = 0.7;
-                break;
-            case OLD:
-                ageModifier = 0.4;
-                break;
-            default:
-                ageModifier = 0.0;
-        }
+        double ageModifier = switch (plantAge) {
+            case YOUNG -> Constants.PLANT_YOUNG_PRODUCTION;
+            case MATURE -> Constants.PLANT_MATURE_PRODUCTION;
+            case OLD -> Constants.PLANT_OLD_PRODUCTION;
+            default -> 0.0;
+        };
         return plantType.getBaseOxygen() + ageModifier;
     }
 
+    /**
+     * Retrieves the chance of the plant causing tangling based on its type.
+     * @return the tangle chance value
+     */
     public double getTangleChance() {
         return plantType.getTangleChance();
     }
 
+    /**
+     * Updates the plant's age and checks if it has died.
+     * @return true if the plant is still alive, false if it has died
+     */
     public boolean updatePlantAge() {
         this.plantAge = this.plantAge.updateGrowth();
         if (this.plantAge == PlantAge.DEAD) {
@@ -97,6 +98,10 @@ public class Plant extends Entity {
         return true;
     }
 
+    /**
+     * Converts the plant object to a JSON node representation.
+     * @return the JSON node representing the plant
+     */
     @Override
     public ObjectNode toNode() {
         ObjectNode plantNode = super.toNode();
@@ -104,7 +109,11 @@ public class Plant extends Entity {
         return plantNode;
     }
 
-    public String getTypeName () {
+    /**
+     * Retrieves the type name of the plant.
+     * @return the plant type name
+     */
+    public String getTypeName() {
         return plantType.getTypeName();
     }
 

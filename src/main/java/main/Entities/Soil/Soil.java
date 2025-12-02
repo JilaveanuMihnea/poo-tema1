@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.SoilInput;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import main.Constants;
 import main.Entities.Entity;
 
 @Data
@@ -17,7 +18,7 @@ public abstract class Soil extends Entity {
     private double soilQuality;
     private double blockChance;
 
-    public Soil(SoilInput soilInput) {
+    public Soil(final SoilInput soilInput) {
         super(soilInput.getName(), soilInput.getMass());
         this.nitrogen = soilInput.getNitrogen();
         this.waterRetention = soilInput.getWaterRetention();
@@ -26,11 +27,20 @@ public abstract class Soil extends Entity {
         this.type = soilInput.getType();
     }
 
-    protected double soilQualityNormalize(double quality) {
-        quality = Math.max(0, Math.min(quality, 100));
-        return Math.round(quality * 100.0) / 100.0;
+    /**
+     * Normalizes soil quality to be within 0 and CLAMP_MAX and rounds to 2 decimal places
+     * @param quality the soil quality to normalize
+     * @return the normalized soil quality
+     */
+    protected double soilQualityNormalize(final double quality) {
+        double qualityClamped = Math.max(0, Math.min(quality, Constants.CLAMP_MAX));
+        return Math.round(qualityClamped * Constants.ROUNDING_FACTOR) / Constants.ROUNDING_FACTOR;
     }
 
+    /**
+     * Converts the soil to a JSON object node
+     * @return the JSON object node representing the soil
+     */
     @Override
     public ObjectNode toNode() {
         ObjectNode soilNode = super.toNode();
@@ -46,13 +56,25 @@ public abstract class Soil extends Entity {
     protected abstract double computeSoilQuality();
     protected abstract double computeBlockChance();
 
-    public void updateWaterRetention(double value){
-        this.waterRetention = Math.round((this.waterRetention + value) * 100.0) / 100.0;
+    /**
+     * Updates water retention by adding the given value and updates soil quality
+     * @param value the value to add to water retention
+     */
+    public void updateWaterRetention(final double value) {
+        this.waterRetention = Math.round((this.waterRetention + value)
+                                         * Constants.ROUNDING_FACTOR)
+                                         / Constants.ROUNDING_FACTOR;
         updateSoilQuality();
     }
 
-    public void updateOrganicMatter(double value){
-        this.organicMatter = Math.round((this.organicMatter + value) * 100.0) / 100.0;
+    /**
+     * Updates nitrogen by adding the given value and updates soil quality
+     * @param value the value to add to nitrogen
+     */
+    public void updateOrganicMatter(final double value) {
+        this.organicMatter = Math.round((this.organicMatter + value)
+                                        * Constants.ROUNDING_FACTOR)
+                                        / Constants.ROUNDING_FACTOR;
         updateSoilQuality();
     }
 
@@ -61,14 +83,17 @@ public abstract class Soil extends Entity {
         this.blockChance = computeBlockChance();
     }
 
+    /**
+     * Interprets soil quality into qualitative terms
+     * @return the interpreted soil quality
+     */
     public String getInterpretedSoilQuality() {
-        if (soilQuality < 40) {
+        if (soilQuality < Constants.SOIL_POOR_QUALITY_THRESHOLD) {
             return "poor";
-        } else if (soilQuality < 70) {
+        } else if (soilQuality < Constants.SOIL_MODERATE_QUALITY_THRESHOLD) {
             return "moderate";
         } else {
             return "good";
         }
     }
-
 }

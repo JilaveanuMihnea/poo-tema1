@@ -368,10 +368,10 @@
     "air" : {
       "name" : "Warm Tropical Breeze",
       "mass" : 940000.0,
-      "humidity" : 78.5,
+      "humidity" : 78.4,
       "temperature" : 26.0,
       "oxygenLevel" : 21.0,
-      "airQuality" : 81.25,
+      "airQuality" : 81.2,
       "type" : "TropicalAir",
       "co2Level" : 0.04
     },
@@ -675,21 +675,21 @@
     "air" : {
       "name" : "Humid Tropical Air",
       "mass" : 960000.0,
-      "humidity" : 83.3,
+      "humidity" : 83.2,
       "temperature" : 28.0,
       "oxygenLevel" : 20.0,
-      "airQuality" : 81.43,
+      "airQuality" : 81.38,
       "type" : "TropicalAir",
       "co2Level" : 22.38
     },
     "water" : {
       "name" : "SwiftRiver",
-      "mass" : 147.25939869695995,
+      "mass" : 125.0755492896768,
       "type" : "river"
     },
     "animals" : {
       "name" : "Wolf",
-      "mass" : 55.54060130303999,
+      "mass" : 115.52445071032318,
       "type" : "Carnivores"
     }
   },
@@ -719,16 +719,16 @@
     "air" : {
       "name" : "Humid Tropical Air",
       "mass" : 960000.0,
-      "humidity" : 83.5,
+      "humidity" : 83.4,
       "temperature" : 28.0,
       "oxygenLevel" : 20.0,
-      "airQuality" : 81.53,
+      "airQuality" : 81.48,
       "type" : "TropicalAir",
       "co2Level" : 22.38
     },
     "water" : {
       "name" : "SwiftRiver",
-      "mass" : 147.25939869695995,
+      "mass" : 125.0755492896768,
       "type" : "river"
     }
   },
@@ -750,21 +750,21 @@
     "air" : {
       "name" : "Humid Tropical Air",
       "mass" : 960000.0,
-      "humidity" : 83.5,
+      "humidity" : 83.4,
       "temperature" : 28.0,
       "oxygenLevel" : 20.0,
-      "airQuality" : 81.53,
+      "airQuality" : 81.48,
       "type" : "TropicalAir",
       "co2Level" : 22.38
     },
     "water" : {
       "name" : "SwiftRiver",
-      "mass" : 142.81615059271675,
+      "mass" : 115.83359323285094,
       "type" : "river"
     },
     "animals" : {
       "name" : "Wolf",
-      "mass" : 59.98384940728319,
+      "mass" : 124.76640676714904,
       "type" : "Carnivores"
     }
   },

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.AirInput;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import main.Constants;
 
 @Data
 @NoArgsConstructor
@@ -14,7 +15,7 @@ public final class PolarAir extends Air {
         super(airInput);
         this.iceCrystalConcentration = airInput.getIceCrystalConcentration();
         this.setAirQuality(computeAirQuality(0));
-        setMaxScore(142);
+        setMaxScore(Constants.POLARAIR_MAX_SCORE);
         setDamageChance(Math.max(0, computeDamageChance()));
     }
 
@@ -27,14 +28,16 @@ public final class PolarAir extends Air {
     }
 
     @Override
-    protected double computeAirQuality(double weatherModifier) {
-        double quality =  getOxygenLevel() * 2 + (100 - Math.abs(getTemperature()))
-                          - iceCrystalConcentration * 0.05 + weatherModifier;
+    protected double computeAirQuality(final double weatherMod) {
+        double quality =  getOxygenLevel() * Constants.POLARAIR_OXYGENLEVEL_MULT
+                          + (Constants.POLARAIR_TEMPERATURE_BASE - Math.abs(getTemperature()))
+                          - iceCrystalConcentration * Constants.POLARAIR_ICECRYSTALCONC_MULT
+                          + weatherMod;
         return airQualityNormalize(quality);
     }
 
     @Override
-    protected double computeWeatherModifier(Object weatherCondition) {
-        return -((double) weatherCondition * 0.2);
+    protected double computeWeatherModifier(final Object weatherCondition) {
+        return ((double) weatherCondition * Constants.POLARAIR_WEATHER_MODIFIER_MULT);
     }
 }

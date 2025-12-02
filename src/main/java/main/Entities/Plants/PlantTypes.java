@@ -1,5 +1,7 @@
 package main.Entities.Plants;
 
+import main.Constants;
+
 enum PlantTypes {
     FLOWERING(6.0, 90, "FloweringPlants"),
     GYMNOSPERM(0.0, 60, "GymnospermsPlants"),
@@ -11,9 +13,9 @@ enum PlantTypes {
     private double tangleChance;
     private String typeName;
 
-    PlantTypes(double baseOxygen, int tanglePossiblity, String typeName) {
+    PlantTypes(final double baseOxygen, final int tanglePossiblity, final String typeName) {
         this.baseOxygen = baseOxygen;
-        this.tangleChance = tanglePossiblity / 100.0;
+        this.tangleChance = tanglePossiblity / Constants.PLANT_TANGLE_DIVIDER;
         this.typeName = typeName;
     }
 

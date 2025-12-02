@@ -3,7 +3,7 @@ package main.TerraBot;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import fileio.*;
+import fileio.PairInput;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,6 +15,7 @@ import main.Entities.Soil.Soil;
 import main.Entities.Water.Water;
 import main.MapUtility.Cell;
 import main.MapUtility.TerraMap;
+import main.Constants;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,7 +24,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class TerraBot implements Movable {
+public final class TerraBot implements Movable {
     private Battery battery;
     private PairInput position;
     private boolean hasEnergyForMove = true;
@@ -43,7 +44,13 @@ public class TerraBot implements Movable {
         this.terraMap = terraMap;
     }
 
-    public void recharge(int extraCharge, int currentTimestamp) {
+    /**
+     * Sets TerraBot to recharging state and updates its battery charge and recharging stop time
+     * @param extraCharge the amount of battery recharge
+     * @param currentTimestamp timestamp when recharging starts (to calculate the
+     *                         recharging stop time)
+     */
+    public void recharge(final int extraCharge, final int currentTimestamp) {
         battery.setCurrentCharge(battery.getCurrentCharge() + extraCharge);
         battery.setRechargingStopTime(currentTimestamp + extraCharge);
         battery.setCharging(true);
@@ -53,11 +60,21 @@ public class TerraBot implements Movable {
         return battery.isCharging();
     }
 
-    public boolean canPerformEnergyConsumingAction(int requiredEnergy) {
+    /**
+     * Checks if TerraBot has enough energy to perform an action that consumes energy
+     * @param requiredEnergy the amount of energy required to perform the action
+     * @return true if TerraBot has enough energy, false otherwise
+     */
+    public boolean canPerformEnergyConsumingAction(final int requiredEnergy) {
         return battery.getCurrentCharge() >= requiredEnergy;
     }
 
-    private InventoryEntry getInventoryItemByName(String componentName) {
+    /**
+     * Gets an inventory item by its name
+     * @param componentName the name of the inventory item
+     * @return the InventoryEntry object if found, null otherwise
+     */
+    private InventoryEntry getInventoryItemByName(final String componentName) {
         for (InventoryEntry entry : inventory) {
             if (entry.getComoponentName().equals(componentName)) {
                 return entry;
@@ -67,18 +84,28 @@ public class TerraBot implements Movable {
 
     }
 
-    public String scanObject(String color, String smell, String sound, int timestamp) {
+    /**
+     * Scans an object in the current cell based on the provided attributes
+     * @param color the color attribute of the object
+     * @param smell the smell attribute of the object
+     * @param sound the sound attribute of the object
+     * @param timestamp the current timestamp
+     * @return a string indicating the type of object scanned, or null if object is not found
+     */
+    public String scanObject(final String color, final String smell, final String sound,
+                             final int timestamp) {
         Cell currentCell = getCurrentCell();
         if (color.equals("none")) {
             Water water = currentCell.getWater();
             if (water == null) {
                 return null;
             } else {
-                battery.consumeCharge(7);
+                battery.consumeCharge(Constants.TERRABOT_SCAN_ENERGY);
                 water.setScanned(true);
                 water.setScannedAt(timestamp);
                 if (getInventoryItemByName(water.getName()) == null) {
-                    this.inventory.add(new InventoryEntry(water.getName(), water.getMass(), water.getType()));
+                    this.inventory.add(new InventoryEntry(water.getName(), water.getMass(),
+                                                          water.getType()));
                 }
                 return "water";
             }
@@ -87,10 +114,11 @@ public class TerraBot implements Movable {
             if (plant == null) {
                 return null;
             } else {
-                battery.consumeCharge(7);
+                battery.consumeCharge(Constants.TERRABOT_SCAN_ENERGY);
                 plant.setScanned(true);
                 if (getInventoryItemByName(plant.getName()) == null) {
-                    this.inventory.add(new InventoryEntry(plant.getName(), plant.getMass(), plant.getTypeName()));
+                    this.inventory.add(new InventoryEntry(plant.getName(), plant.getMass(),
+                                                          plant.getTypeName()));
                 }
                 return "a plant";
             }
@@ -99,19 +127,26 @@ public class TerraBot implements Movable {
             if (animal == null) {
                 return null;
             } else {
-                battery.consumeCharge(7);
+                battery.consumeCharge(Constants.TERRABOT_SCAN_ENERGY);
                 terraMap.addScannedAnimal(animal);
                 animal.setScanned(true);
                 animal.setScannedAt(timestamp);
                 if (getInventoryItemByName(animal.getName())  == null) {
-                    this.inventory.add(new InventoryEntry(animal.getName(), animal.getMass(), animal.getTypeName()));
+                    this.inventory.add(new InventoryEntry(animal.getName(), animal.getMass(),
+                                                          animal.getTypeName()));
                 }
                 return "an animal";
             }
         }
     }
 
-    public boolean learnFact(String componentName, String subject) {
+    /**
+     * Learns a fact about a component and updates the inventory
+     * @param componentName the name of the component
+     * @param subject the fact to be learned
+     * @return true if the fact was learned successfully, false if item not in inventory
+     */
+    public boolean learnFact(final String componentName, final String subject) {
 
         InventoryEntry entry = getInventoryItemByName(componentName);
         if (entry == null) {
@@ -122,6 +157,10 @@ public class TerraBot implements Movable {
         return true;
     }
 
+    /**
+     * Gets the knowledge base of TerraBot as a JSON array
+     * @return an ArrayNode representing the knowledge base
+     */
     public ArrayNode printKnowledgeBase() {
         ArrayNode arrayNode = new ObjectMapper().createArrayNode();
         for (InventoryEntry entry : inventory) {
@@ -136,7 +175,13 @@ public class TerraBot implements Movable {
         return arrayNode;
     }
 
-    public String improveEnvironment(String improvementType, String componentName, String componentType) {
+    /**
+     * Improves the environment based on the improvement type and component used
+     * @param improvementType the improvement action to be performed
+     * @param componentName the name of the component used for improvement
+     * @return
+     */
+    public String improveEnvironment(final String improvementType, final String componentName) {
         InventoryEntry entry = getInventoryItemByName(componentName);
         if (entry == null) {
             return "ERROR: Subject not yet saved. Cannot perform action";
@@ -145,13 +190,9 @@ public class TerraBot implements Movable {
         switch (improvementType) {
             case "plantVegetation" -> {
                 if (entry.isPlantMethod()) {
-                    battery.consumeCharge(10);
+                    battery.consumeCharge(Constants.TERRABOT_IMPROVE_ENERGY);
                     Air air = getCurrentCell().getAir();
-                    air.updateOxygenLevel(0.3);
-                    PlantInput plantInput = new PlantInput();
-                    plantInput.setName(componentName);
-                    plantInput.setMass(entry.getMass());
-                    plantInput.setType(componentType);
+                    air.updateOxygenLevel(Constants.IMPROVE_PLANT_VALUE);
                     return "The " + componentName + " was planted successfully.";
                 } else {
                     return "ERROR: Fact not yet saved. Cannot perform action";
@@ -159,9 +200,9 @@ public class TerraBot implements Movable {
             }
             case "fertilizeSoil" -> {
                 if (entry.isFertilizeMethod()) {
-                    battery.consumeCharge(10);
+                    battery.consumeCharge(Constants.TERRABOT_IMPROVE_ENERGY);
                     Soil soil = getCurrentCell().getSoil();
-                    soil.updateOrganicMatter(0.3);
+                    soil.updateOrganicMatter(Constants.IMPROVE_FERTILIZE_VALUE);
                     return "The soil was succesfully fertilized using " + componentName + ".";
                 } else {
                     return "ERROR: Fact not yet saved. Cannot perform action";
@@ -169,9 +210,9 @@ public class TerraBot implements Movable {
             }
             case "increaseHumidity" -> {
                 if (entry.isHumidityMethod()) {
-                    battery.consumeCharge(10);
+                    battery.consumeCharge(Constants.TERRABOT_IMPROVE_ENERGY);
                     Air air = getCurrentCell().getAir();
-                    air.updateHumidity(0.3);
+                    air.updateHumidity(Constants.IMPROVE_HUMIDITY_VALUE);
                     return "The humidity was successfully increased using " + componentName + ".";
                 } else {
                     return "ERROR: Fact not yet saved. Cannot perform action";
@@ -179,9 +220,9 @@ public class TerraBot implements Movable {
             }
             case "increaseMoisture" -> {
                 if (entry.isMoistureMethod()) {
-                    battery.consumeCharge(10);
+                    battery.consumeCharge(Constants.TERRABOT_IMPROVE_ENERGY);
                     Soil soil = getCurrentCell().getSoil();
-                    soil.updateWaterRetention(0.2);
+                    soil.updateWaterRetention(Constants.IMPROVE_MOISTURE_VALUE);
                     return "The moisture was successfully increased using " + componentName;
                 } else {
                     return "ERROR: Fact not yet saved. Cannot perform action";

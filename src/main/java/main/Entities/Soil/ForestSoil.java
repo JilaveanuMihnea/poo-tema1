@@ -1,5 +1,6 @@
 package main.Entities.Soil;
 
+import main.Constants;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.SoilInput;
 import lombok.Data;
@@ -9,24 +10,29 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public final class ForestSoil extends Soil {
     private double leafLitter;
-    public ForestSoil(SoilInput soilInput) {
+    public ForestSoil(final SoilInput soilInput) {
         super(soilInput);
         this.leafLitter = soilInput.getLeafLitter();
         this.setSoilQuality(computeSoilQuality());
-        this.setBlockChance(Math.max(0, Math.min(computeBlockChance(), 100)));
+        this.setBlockChance(Math.max(0, Math.min(computeBlockChance(), Constants.CLAMP_MAX)));
     }
 
     @Override
     protected double computeSoilQuality() {
         double quality;
-        quality = (this.getNitrogen() * 1.2) + (this.getOrganicMatter() * 2)
-                + (this.getWaterRetention() * 1.5) + (leafLitter * 0.3);
+        quality = (this.getNitrogen() * Constants.FORESTSOIL_Q_NITROGEN_MULT)
+                + (this.getOrganicMatter() * Constants.FORESTSOIL_Q_ORGANIC_MULT)
+                + (this.getWaterRetention() * Constants.FORESTSOIL_Q_RETENTION_MULT)
+                + (leafLitter * Constants.FORESTSOIL_Q_LITTER_MULT);
         return soilQualityNormalize(quality);
     }
 
     @Override
     protected double computeBlockChance() {
-        return Math.max(0, (this.getWaterRetention() * 0.6 + leafLitter * 0.4) / 80 * 100);
+        return Math.max(0, (this.getWaterRetention() * Constants.FORESTSOIL_B_RETENTION_MULT
+                            + leafLitter * Constants.FORESTSOIL_B_LITTER_MULT)
+                            / Constants.FORESTSOIL_B_DIVIDER
+                            * Constants.FORESTSOIL_B_MULTIPLIER);
     }
 
     @Override

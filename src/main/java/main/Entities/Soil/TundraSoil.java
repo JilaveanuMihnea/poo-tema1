@@ -4,29 +4,33 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.SoilInput;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import main.Constants;
 
 @Data
 @NoArgsConstructor
 public final class TundraSoil extends Soil {
     private double permafrostDepth;
-    public TundraSoil(SoilInput soilInput) {
+    public TundraSoil(final SoilInput soilInput) {
         super(soilInput);
         this.permafrostDepth = soilInput.getPermafrostDepth();
         this.setSoilQuality(computeSoilQuality());
-        this.setBlockChance(Math.max(0, Math.min(computeBlockChance(), 100)));
+        this.setBlockChance(Math.max(0, Math.min(computeBlockChance(), Constants.CLAMP_MAX)));
     }
 
     @Override
     protected double computeSoilQuality() {
         double quality;
-        quality = (this.getNitrogen() * 0.7) + (this.getOrganicMatter() * 0.5)
-                - (permafrostDepth * 1.5);
+        quality = (this.getNitrogen() * Constants.TUNDRASOIL_Q_NITROGEN_MULT)
+                + (this.getOrganicMatter() * Constants.TUNDRASOIL_Q_ORGANIC_MULT)
+                - (permafrostDepth * Constants.TUNDRASOIL_Q_FROST_MULT);
         return soilQualityNormalize(quality);
     }
 
     @Override
     protected double computeBlockChance() {
-        return Math.max(0, (50 - permafrostDepth) / 50 * 100);
+        return Math.max(0, (Constants.TUNDRASOIL_B_BASE - permafrostDepth)
+                        / Constants.TUNDRASOIL_B_DIVIDER
+                        * Constants.TUNDRASOIL_B_MULTIPLIER);
     }
 
     @Override
